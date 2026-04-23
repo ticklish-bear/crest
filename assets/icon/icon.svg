@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- Crest app icon — Forest palette -->
+  <rect width="1024" height="1024" rx="224" fill="#F3ECE0"/>
+  <line x1="200" y1="600" x2="824" y2="600"
+        stroke="#2B4A3E" stroke-width="10"
+        stroke-dasharray="28 22"
+        stroke-opacity="0.38"
+        stroke-linecap="round"/>
+  <path d="M 200 700 C 450 700, 574 380, 824 380"
+        stroke="#2B4A3E" stroke-width="56"
+        fill="none"
+        stroke-linecap="round"/>
+</svg>
