@@ -8,6 +8,7 @@ import '../models/day_entry.dart';
 import '../models/settings.dart';
 import '../services/stm_engine.dart';
 import '../theme/app_theme.dart';
+import '../l10n/app_localizations.dart';
 import 'day_entry_screen.dart';
 
 class CalendarScreen extends StatefulWidget {
@@ -186,6 +187,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
   Widget _buildTodayQuickEntry(BuildContext context,
       CycleProvider provider, StmEvaluation? evaluation,
       ColorScheme colors) {
+    final l = AppLocalizations.of(context)!;
     final today = DateTime.now();
     final todayEntry = provider.getEntryForDate(today);
     final hasTodayData = todayEntry != null &&
@@ -218,14 +220,14 @@ class _CalendarScreenState extends State<CalendarScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Log today's observations",
+                      Text(l.logTodayTitle,
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 14,
                             color: colors.primary,
                           )),
                       Text(
-                        'Temperature, mucus, bleeding',
+                        l.logTodaySub,
                         style: TextStyle(
                           fontSize: 12,
                           color: colors.onSurfaceVariant,
@@ -353,6 +355,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
       BuildContext context, CycleProvider provider, Cycle? cycle) {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
+    final l = AppLocalizations.of(context)!;
+    final locale = Localizations.localeOf(context).toString();
 
     if (cycle == null) {
       return Container(
@@ -369,14 +373,14 @@ class _CalendarScreenState extends State<CalendarScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'No active cycle',
+                    l.noActiveCycle,
                     style: theme.textTheme.titleSmall?.copyWith(
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   const SizedBox(height: 2),
                   Text(
-                    'Start tracking to see fertility insights',
+                    l.noActiveCycleSub,
                     style: theme.textTheme.bodySmall?.copyWith(
                       color: colors.onSurfaceVariant,
                     ),
@@ -386,7 +390,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
             ),
             FilledButton.tonal(
               onPressed: () => _startNewCycle(context, provider),
-              child: const Text('Start'),
+              child: Text(l.start),
             ),
           ],
         ),
@@ -410,7 +414,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
               borderRadius: BorderRadius.circular(8),
             ),
             child: Text(
-              'Day ${cycle.currentDayCount}',
+              l.cycleDayBadge(cycle.currentDayCount),
               style: TextStyle(
                 color: colors.onPrimary,
                 fontWeight: FontWeight.w700,
@@ -421,7 +425,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
           const SizedBox(width: 12),
           Expanded(
             child: Text(
-              'Started ${DateFormat('MMM d').format(cycle.startDate)}',
+              l.cycleStarted(DateFormat('MMM d', locale).format(cycle.startDate)),
               style: theme.textTheme.bodyMedium?.copyWith(
                 color: colors.onSurfaceVariant,
               ),
@@ -430,7 +434,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
           IconButton(
             icon: Icon(Icons.add_circle_outline,
                 color: colors.primary, size: 22),
-            tooltip: 'Start new cycle',
+            tooltip: l.startNewCycleTooltip,
             onPressed: () => _startNewCycle(context, provider),
           ),
         ],
@@ -440,6 +444,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
 
   Widget _buildDaySummary(
       BuildContext context, CycleProvider provider, ColorScheme colors) {
+    final l = AppLocalizations.of(context)!;
+    final locale = Localizations.localeOf(context).toString();
     final entry = provider.getEntryForDate(provider.selectedDate);
     final status = provider.getFertilityStatus(provider.selectedDate);
     final cycle = provider.currentCycle;
@@ -468,7 +474,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
                 children: [
                   Expanded(
                     child: Text(
-                      DateFormat('EEEE, MMM d')
+                      DateFormat('EEEE, MMM d', locale)
                           .format(provider.selectedDate),
                       style: const TextStyle(
                         fontSize: 15,
@@ -488,9 +494,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
                         ),
                       ),
                       child: Text(
-                        StmEngine.statusLabel(status,
-                            purpose: purpose, cycleDay: cycleDay,
-                            evaluation: provider.currentEvaluation),
+                        _localizedStatusLabel(l, status, purpose,
+                            cycleDay, provider.currentEvaluation),
                         style: TextStyle(
                           color: _statusChipColor(status),
                           fontSize: 11,
@@ -519,15 +524,15 @@ class _CalendarScreenState extends State<CalendarScreen> {
                 if (entry.temperature != null)
                   _infoRow(
                       Icons.thermostat_outlined,
-                      'Temperature',
+                      l.sectionTemperature,
                       '${provider.settings.displayTemp(entry.temperature!).toStringAsFixed(2)} ${provider.settings.tempUnitLabel}',
                       colors),
                 if (entry.hasMucusRecorded && entry.mucusType != MucusType.dry)
-                  _infoRow(Icons.water_drop_outlined, 'Mucus',
+                  _infoRow(Icons.water_drop_outlined, l.mucusShort,
                       _mucusLabel(entry.mucusType), colors),
                 if (entry.bleeding != BleedingType.none)
-                  _infoRow(Icons.circle, 'Bleeding',
-                      entry.bleeding.name, colors,
+                  _infoRow(Icons.circle, l.sectionBleeding,
+                      _bleedingLabel(entry.bleeding), colors,
                       iconColor: AppColors.menstruation),
               ] else
                 Row(
@@ -536,7 +541,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
                         size: 16, color: colors.primary),
                     const SizedBox(width: 8),
                     Text(
-                      'Tap to add entry',
+                      l.tapToAddEntry,
                       style: TextStyle(
                         color: colors.primary,
                         fontWeight: FontWeight.w500,
@@ -573,6 +578,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
   }
 
   Widget _buildLegend(AppPurpose purpose) {
+    final l = AppLocalizations.of(context)!;
     final isAnti = purpose == AppPurpose.anticonception;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -582,12 +588,12 @@ class _CalendarScreenState extends State<CalendarScreen> {
         runSpacing: 6,
         children: [
           _legendItem(AppColors.menstruation,
-              isAnti ? 'Infertile (period)' : 'Period'),
+              isAnti ? l.legendPeriodInfertile : l.legendPeriod),
           _legendItem(AppColors.infertilePre,
-              isAnti ? 'Pot. fertile' : 'Phase 1'),
-          _legendItem(AppColors.fertile, 'Fertile'),
+              isAnti ? l.legendPotFertile : l.legendPhase1),
+          _legendItem(AppColors.fertile, l.statusFertile),
           _legendItem(AppColors.infertilePost,
-              isAnti ? 'Infertile (confirmed)' : 'Post-ov'),
+              isAnti ? l.legendInfertileConfirmed : l.legendPostOv),
         ],
       ),
     );
@@ -620,13 +626,14 @@ class _CalendarScreenState extends State<CalendarScreen> {
 
   Future<void> _startNewCycle(
       BuildContext context, CycleProvider provider) async {
+    final l = AppLocalizations.of(context)!;
     final now = DateTime.now();
     final date = await showDatePicker(
       context: context,
       initialDate: now,
       firstDate: DateTime(2020),
       lastDate: now,
-      helpText: 'When did your period start?',
+      helpText: l.periodStartHelp,
     );
 
     if (date != null && context.mounted) {
@@ -667,6 +674,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
   void _showRuleExplanation(BuildContext context,
       FertilityStatus status, int cycleDay, AppPurpose purpose,
       StmEvaluation? evaluation) {
+    final l = AppLocalizations.of(context)!;
     final explanation =
         _statusExplanation(status, cycleDay, purpose, evaluation);
     final ruleDetail =
@@ -682,7 +690,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
               Icon(Icons.school_outlined,
                   size: 20, color: colors.primary),
               const SizedBox(width: 8),
-              const Text('STM Rule', style: TextStyle(fontSize: 16)),
+              Text(l.stmRuleTitle, style: const TextStyle(fontSize: 16)),
             ],
           ),
           content: Column(
@@ -697,8 +705,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(
-                  StmEngine.statusLabel(status,
-                      purpose: purpose, cycleDay: cycleDay),
+                  _localizedStatusLabel(l, status, purpose, cycleDay,
+                      evaluation),
                   style: TextStyle(
                     color: _statusChipColor(status),
                     fontWeight: FontWeight.w600,
@@ -742,7 +750,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(ctx),
-              child: const Text('Got it'),
+              child: Text(l.gotIt),
             ),
           ],
         );
@@ -965,21 +973,77 @@ class _CalendarScreenState extends State<CalendarScreen> {
   }
 
   String _mucusLabel(MucusType type) {
+    final l = AppLocalizations.of(context)!;
     switch (type) {
       case MucusType.dry:
-        return 'Dry';
+        return l.mucusDry;
       case MucusType.nothing:
-        return 'Nothing seen';
+        return l.mucusNothing;
       case MucusType.moist:
-        return 'Moist';
+        return l.mucusMoist;
       case MucusType.wet:
-        return 'Wet';
+        return l.mucusWet;
       case MucusType.slippery:
-        return 'Slippery';
+        return l.mucusSlippery;
       case MucusType.eggWhite:
-        return 'Egg white';
+        return l.mucusEggWhite;
       case MucusType.unrecorded:
-        return 'Not recorded';
+        return l.mucusNotRecorded;
+    }
+  }
+
+  String _bleedingLabel(BleedingType type) {
+    final l = AppLocalizations.of(context)!;
+    switch (type) {
+      case BleedingType.none:
+        return l.bleedNone;
+      case BleedingType.spotting:
+        return l.bleedSpotting;
+      case BleedingType.light:
+        return l.bleedLight;
+      case BleedingType.medium:
+        return l.bleedMedium;
+      case BleedingType.heavy:
+        return l.bleedHeavy;
+    }
+  }
+
+  /// Localized fertility-status label, mirroring StmEngine.statusLabel's logic
+  /// so the engine can stay pure/English while the UI renders per locale.
+  String _localizedStatusLabel(AppLocalizations l, FertilityStatus status,
+      AppPurpose purpose, int? cycleDay, StmEvaluation? evaluation) {
+    switch (status) {
+      case FertilityStatus.infertilePreOvulation:
+        return purpose == AppPurpose.anticonception
+            ? l.statusPotentiallyFertile
+            : l.statusInfertilePreOv;
+      case FertilityStatus.fertile:
+        return l.statusFertile;
+      case FertilityStatus.fertileWaitingForDoubleCheck:
+        if (evaluation != null) {
+          if (evaluation.temperatureShiftConfirmedDay != null &&
+              evaluation.peakDay == null) {
+            return l.statusFertileAwaitingMucus;
+          } else if (evaluation.peakDay != null &&
+              evaluation.temperatureShiftConfirmedDay == null) {
+            return l.statusFertileAwaitingTemp;
+          }
+        }
+        return l.statusFertileAwaitingCheck;
+      case FertilityStatus.infertilePostOvulation:
+        return purpose == AppPurpose.anticonception
+            ? l.statusInfertile
+            : l.statusInfertilePostOv;
+      case FertilityStatus.menstruation:
+        if (purpose == AppPurpose.anticonception) {
+          final limit = evaluation?.lastInfertilePreOvDay;
+          if (cycleDay != null && limit != null && cycleDay <= limit) {
+            return l.statusInfertileDay(cycleDay, limit);
+          }
+        }
+        return l.statusMenstruation;
+      case FertilityStatus.unknown:
+        return l.statusUnknown;
     }
   }
 }
@@ -1008,29 +1072,33 @@ class _NewCycleDialogState extends State<_NewCycleDialog> {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
+    final l = AppLocalizations.of(context)!;
+    final locale = Localizations.localeOf(context).toString();
 
     return AlertDialog(
-      title: const Text('Start New Cycle'),
+      title: Text(l.newCycleTitle),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Starting on ${DateFormat('MMM d, y').format(widget.date)}',
+            l.newCycleStarting(
+                DateFormat('MMM d, y', locale).format(widget.date)),
             style: TextStyle(color: colors.onSurfaceVariant),
           ),
           if (widget.hasExistingCycle) ...[
             const SizedBox(height: 4),
             Text(
-              'The current cycle will be closed.',
+              l.newCycleWillClose,
               style: TextStyle(
                   color: colors.onSurfaceVariant, fontSize: 13),
             ),
           ],
           const SizedBox(height: 20),
           Text(_isToday(widget.date)
-                  ? 'How is your bleeding today?'
-                  : 'How was your bleeding on ${DateFormat('MMM d').format(widget.date)}?',
+                  ? l.bleedingTodayQ
+                  : l.bleedingOnDayQ(
+                      DateFormat('MMM d', locale).format(widget.date)),
               style: TextStyle(
                 fontWeight: FontWeight.w500,
                 color: colors.onSurface,
@@ -1060,12 +1128,12 @@ class _NewCycleDialogState extends State<_NewCycleDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context),
-          child: const Text('Cancel'),
+          child: Text(l.cancel),
         ),
         FilledButton(
           onPressed: () => Navigator.pop(
               context, _NewCycleResult(bleeding: _bleeding)),
-          child: const Text('Start Cycle'),
+          child: Text(l.startCycle),
         ),
       ],
     );
@@ -1079,17 +1147,18 @@ class _NewCycleDialogState extends State<_NewCycleDialog> {
   }
 
   String _bleedingLabel(BleedingType type) {
+    final l = AppLocalizations.of(context)!;
     switch (type) {
       case BleedingType.none:
-        return 'None';
+        return l.bleedNone;
       case BleedingType.spotting:
-        return 'Spotting';
+        return l.bleedSpotting;
       case BleedingType.light:
-        return 'Light';
+        return l.bleedLight;
       case BleedingType.medium:
-        return 'Medium';
+        return l.bleedMedium;
       case BleedingType.heavy:
-        return 'Heavy';
+        return l.bleedHeavy;
     }
   }
 }

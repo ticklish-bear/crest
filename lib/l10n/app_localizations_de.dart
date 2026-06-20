@@ -459,4 +459,126 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get entrySaved => 'Eintrag gespeichert';
+
+  @override
+  String get logTodayTitle => 'Heute eintragen';
+
+  @override
+  String get logTodaySub => 'Temperatur, Schleim, Blutung';
+
+  @override
+  String get noActiveCycle => 'Kein aktiver Zyklus';
+
+  @override
+  String get noActiveCycleSub =>
+      'Starte die Erfassung für Fruchtbarkeits-Einblicke';
+
+  @override
+  String get start => 'Start';
+
+  @override
+  String cycleDayBadge(int day) {
+    return 'Tag $day';
+  }
+
+  @override
+  String cycleStarted(String date) {
+    return 'Begonnen am $date';
+  }
+
+  @override
+  String get startNewCycleTooltip => 'Neuen Zyklus starten';
+
+  @override
+  String get tapToAddEntry => 'Tippen, um Eintrag hinzuzufügen';
+
+  @override
+  String get mucusShort => 'Schleim';
+
+  @override
+  String get legendPeriodInfertile => 'Unfruchtbar (Periode)';
+
+  @override
+  String get legendPeriod => 'Periode';
+
+  @override
+  String get legendPotFertile => 'Evtl. fruchtbar';
+
+  @override
+  String get legendPhase1 => 'Phase 1';
+
+  @override
+  String get legendInfertileConfirmed => 'Unfruchtbar (bestätigt)';
+
+  @override
+  String get legendPostOv => 'Nach Eisprung';
+
+  @override
+  String get periodStartHelp => 'Wann hat deine Periode begonnen?';
+
+  @override
+  String get newCycleTitle => 'Neuen Zyklus starten';
+
+  @override
+  String newCycleStarting(String date) {
+    return 'Beginn am $date';
+  }
+
+  @override
+  String get newCycleWillClose => 'Der aktuelle Zyklus wird abgeschlossen.';
+
+  @override
+  String get bleedingTodayQ => 'Wie ist deine Blutung heute?';
+
+  @override
+  String bleedingOnDayQ(String date) {
+    return 'Wie war deine Blutung am $date?';
+  }
+
+  @override
+  String get startCycle => 'Zyklus starten';
+
+  @override
+  String get stmRuleTitle => 'STM-Regel';
+
+  @override
+  String get gotIt => 'Verstanden';
+
+  @override
+  String get statusPotentiallyFertile => 'Evtl. fruchtbar';
+
+  @override
+  String get statusInfertilePreOv => 'Unfruchtbar (vor Eisprung)';
+
+  @override
+  String get statusFertile => 'Fruchtbar';
+
+  @override
+  String get statusFertileAwaitingMucus =>
+      'Fruchtbar (Temp.-Anstieg ✓, Schleim fehlt)';
+
+  @override
+  String get statusFertileAwaitingTemp =>
+      'Fruchtbar (Höhepunkt ✓, Temp. fehlt)';
+
+  @override
+  String get statusFertileAwaitingCheck =>
+      'Fruchtbar (Doppelkontrolle ausstehend)';
+
+  @override
+  String get statusInfertile => 'Unfruchtbar';
+
+  @override
+  String get statusInfertilePostOv => 'Unfruchtbar (nach Eisprung)';
+
+  @override
+  String get statusMenstruation => 'Menstruation';
+
+  @override
+  String statusInfertileDay(int day, int limit) {
+    return 'Unfruchtbar (Tag $day/$limit)';
+  }
+
+  @override
+  String get statusUnknown => 'Unbekannt';
 }

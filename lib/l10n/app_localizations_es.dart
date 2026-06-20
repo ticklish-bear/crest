@@ -460,4 +460,123 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get entrySaved => 'Registro guardado';
+
+  @override
+  String get logTodayTitle => 'Registrar hoy';
+
+  @override
+  String get logTodaySub => 'Temperatura, moco, sangrado';
+
+  @override
+  String get noActiveCycle => 'Sin ciclo activo';
+
+  @override
+  String get noActiveCycleSub => 'Empieza a registrar para ver tu fertilidad';
+
+  @override
+  String get start => 'Iniciar';
+
+  @override
+  String cycleDayBadge(int day) {
+    return 'Día $day';
+  }
+
+  @override
+  String cycleStarted(String date) {
+    return 'Inició el $date';
+  }
+
+  @override
+  String get startNewCycleTooltip => 'Iniciar nuevo ciclo';
+
+  @override
+  String get tapToAddEntry => 'Toca para añadir registro';
+
+  @override
+  String get mucusShort => 'Moco';
+
+  @override
+  String get legendPeriodInfertile => 'Infértil (regla)';
+
+  @override
+  String get legendPeriod => 'Regla';
+
+  @override
+  String get legendPotFertile => 'Pot. fértil';
+
+  @override
+  String get legendPhase1 => 'Fase 1';
+
+  @override
+  String get legendInfertileConfirmed => 'Infértil (confirmado)';
+
+  @override
+  String get legendPostOv => 'Posovulación';
+
+  @override
+  String get periodStartHelp => '¿Cuándo empezó tu regla?';
+
+  @override
+  String get newCycleTitle => 'Iniciar nuevo ciclo';
+
+  @override
+  String newCycleStarting(String date) {
+    return 'Empieza el $date';
+  }
+
+  @override
+  String get newCycleWillClose => 'El ciclo actual se cerrará.';
+
+  @override
+  String get bleedingTodayQ => '¿Cómo es tu sangrado hoy?';
+
+  @override
+  String bleedingOnDayQ(String date) {
+    return '¿Cómo fue tu sangrado el $date?';
+  }
+
+  @override
+  String get startCycle => 'Iniciar ciclo';
+
+  @override
+  String get stmRuleTitle => 'Regla del método';
+
+  @override
+  String get gotIt => 'Entendido';
+
+  @override
+  String get statusPotentiallyFertile => 'Pot. fértil';
+
+  @override
+  String get statusInfertilePreOv => 'Infértil (preovulación)';
+
+  @override
+  String get statusFertile => 'Fértil';
+
+  @override
+  String get statusFertileAwaitingMucus =>
+      'Fértil (cambio térmico ✓, falta moco)';
+
+  @override
+  String get statusFertileAwaitingTemp => 'Fértil (día cúspide ✓, falta temp.)';
+
+  @override
+  String get statusFertileAwaitingCheck => 'Fértil (falta doble confirmación)';
+
+  @override
+  String get statusInfertile => 'Infértil';
+
+  @override
+  String get statusInfertilePostOv => 'Infértil (posovulación)';
+
+  @override
+  String get statusMenstruation => 'Menstruación';
+
+  @override
+  String statusInfertileDay(int day, int limit) {
+    return 'Infértil (día $day/$limit)';
+  }
+
+  @override
+  String get statusUnknown => 'Desconocido';
 }

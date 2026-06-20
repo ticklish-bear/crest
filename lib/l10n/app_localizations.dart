@@ -951,6 +951,222 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Entry saved'**
   String get entrySaved;
+
+  /// No description provided for @logTodayTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Log today\'s observations'**
+  String get logTodayTitle;
+
+  /// No description provided for @logTodaySub.
+  ///
+  /// In en, this message translates to:
+  /// **'Temperature, mucus, bleeding'**
+  String get logTodaySub;
+
+  /// No description provided for @noActiveCycle.
+  ///
+  /// In en, this message translates to:
+  /// **'No active cycle'**
+  String get noActiveCycle;
+
+  /// No description provided for @noActiveCycleSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Start tracking to see fertility insights'**
+  String get noActiveCycleSub;
+
+  /// No description provided for @start.
+  ///
+  /// In en, this message translates to:
+  /// **'Start'**
+  String get start;
+
+  /// No description provided for @cycleDayBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'Day {day}'**
+  String cycleDayBadge(int day);
+
+  /// No description provided for @cycleStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Started {date}'**
+  String cycleStarted(String date);
+
+  /// No description provided for @startNewCycleTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Start new cycle'**
+  String get startNewCycleTooltip;
+
+  /// No description provided for @tapToAddEntry.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to add entry'**
+  String get tapToAddEntry;
+
+  /// No description provided for @mucusShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Mucus'**
+  String get mucusShort;
+
+  /// No description provided for @legendPeriodInfertile.
+  ///
+  /// In en, this message translates to:
+  /// **'Infertile (period)'**
+  String get legendPeriodInfertile;
+
+  /// No description provided for @legendPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'Period'**
+  String get legendPeriod;
+
+  /// No description provided for @legendPotFertile.
+  ///
+  /// In en, this message translates to:
+  /// **'Pot. fertile'**
+  String get legendPotFertile;
+
+  /// No description provided for @legendPhase1.
+  ///
+  /// In en, this message translates to:
+  /// **'Phase 1'**
+  String get legendPhase1;
+
+  /// No description provided for @legendInfertileConfirmed.
+  ///
+  /// In en, this message translates to:
+  /// **'Infertile (confirmed)'**
+  String get legendInfertileConfirmed;
+
+  /// No description provided for @legendPostOv.
+  ///
+  /// In en, this message translates to:
+  /// **'Post-ov'**
+  String get legendPostOv;
+
+  /// No description provided for @periodStartHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'When did your period start?'**
+  String get periodStartHelp;
+
+  /// No description provided for @newCycleTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Start New Cycle'**
+  String get newCycleTitle;
+
+  /// No description provided for @newCycleStarting.
+  ///
+  /// In en, this message translates to:
+  /// **'Starting on {date}'**
+  String newCycleStarting(String date);
+
+  /// No description provided for @newCycleWillClose.
+  ///
+  /// In en, this message translates to:
+  /// **'The current cycle will be closed.'**
+  String get newCycleWillClose;
+
+  /// No description provided for @bleedingTodayQ.
+  ///
+  /// In en, this message translates to:
+  /// **'How is your bleeding today?'**
+  String get bleedingTodayQ;
+
+  /// No description provided for @bleedingOnDayQ.
+  ///
+  /// In en, this message translates to:
+  /// **'How was your bleeding on {date}?'**
+  String bleedingOnDayQ(String date);
+
+  /// No description provided for @startCycle.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Cycle'**
+  String get startCycle;
+
+  /// No description provided for @stmRuleTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'STM Rule'**
+  String get stmRuleTitle;
+
+  /// No description provided for @gotIt.
+  ///
+  /// In en, this message translates to:
+  /// **'Got it'**
+  String get gotIt;
+
+  /// No description provided for @statusPotentiallyFertile.
+  ///
+  /// In en, this message translates to:
+  /// **'Potentially fertile'**
+  String get statusPotentiallyFertile;
+
+  /// No description provided for @statusInfertilePreOv.
+  ///
+  /// In en, this message translates to:
+  /// **'Infertile (pre-ov)'**
+  String get statusInfertilePreOv;
+
+  /// No description provided for @statusFertile.
+  ///
+  /// In en, this message translates to:
+  /// **'Fertile'**
+  String get statusFertile;
+
+  /// No description provided for @statusFertileAwaitingMucus.
+  ///
+  /// In en, this message translates to:
+  /// **'Fertile (temp shift ✓, awaiting mucus)'**
+  String get statusFertileAwaitingMucus;
+
+  /// No description provided for @statusFertileAwaitingTemp.
+  ///
+  /// In en, this message translates to:
+  /// **'Fertile (Peak Day ✓, awaiting temp)'**
+  String get statusFertileAwaitingTemp;
+
+  /// No description provided for @statusFertileAwaitingCheck.
+  ///
+  /// In en, this message translates to:
+  /// **'Fertile (awaiting double-check)'**
+  String get statusFertileAwaitingCheck;
+
+  /// No description provided for @statusInfertile.
+  ///
+  /// In en, this message translates to:
+  /// **'Infertile'**
+  String get statusInfertile;
+
+  /// No description provided for @statusInfertilePostOv.
+  ///
+  /// In en, this message translates to:
+  /// **'Infertile (post-ov)'**
+  String get statusInfertilePostOv;
+
+  /// No description provided for @statusMenstruation.
+  ///
+  /// In en, this message translates to:
+  /// **'Menstruation'**
+  String get statusMenstruation;
+
+  /// No description provided for @statusInfertileDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Infertile (day {day}/{limit})'**
+  String statusInfertileDay(int day, int limit);
+
+  /// No description provided for @statusUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown'**
+  String get statusUnknown;
 }
 
 class _AppLocalizationsDelegate
