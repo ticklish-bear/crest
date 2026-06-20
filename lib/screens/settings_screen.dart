@@ -7,6 +7,8 @@ import '../providers/cycle_provider.dart';
 import '../models/settings.dart';
 import '../database/database_helper.dart';
 import '../services/export_import_service.dart';
+import '../config/support_links.dart';
+import 'support_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -292,6 +294,25 @@ class SettingsScreen extends StatelessWidget {
                     'Compatible with the symptothermal method. Independent app, not affiliated with any organization.'),
               ),
             ]),
+
+            if (SupportLinks.enabled) ...[
+              const SizedBox(height: 20),
+              _sectionTitle('Support', colors),
+              _settingsContainer(colors, [
+                ListTile(
+                  leading: Icon(Icons.local_cafe_outlined,
+                      color: colors.primary),
+                  title: const Text('Support development'),
+                  subtitle: const Text(
+                      'Crest is free. Chip in a coffee if you like — optional.'),
+                  trailing: const Icon(Icons.chevron_right),
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                        builder: (_) => const SupportScreen()),
+                  ),
+                ),
+              ]),
+            ],
             const SizedBox(height: 32),
           ],
         );

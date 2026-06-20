@@ -1,0 +1,15 @@
+# Copy this file to android/key.properties and fill in your real values.
+# android/key.properties is git-ignored and must NEVER be committed.
+#
+# Generate the upload keystore once with (keep the .jks file safe and backed up —
+# if you lose it you can no longer update the app on Play without a key reset):
+#
+#   keytool -genkey -v -keystore upload-keystore.jks \
+#           -keyalg RSA -keysize 2048 -validity 10000 -alias upload
+#
+# Then set storeFile to the absolute path of that .jks file.
+
+storePassword=CHANGE_ME
+keyPassword=CHANGE_ME
+keyAlias=upload
+storeFile=C:/Users/Jakub/keys/crest-upload-keystore.jks

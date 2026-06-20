@@ -1,0 +1,26 @@
+Crest is a charting app for the symptothermal method (STM, also known as NFP/FAM). It's a digital chart — built to support how you already work, not to replace your judgement with a black box.
+
+WHAT IT IS
+Crest records the signs you track: basal body temperature, cervical mucus, cervix, bleeding, and notes. The evaluation follows the published symptothermal rules and the AG NFP guidelines — nothing else.
+
+• No algorithm that "learns" from your data
+• No predictions guessed from past cycle lengths
+• No proprietary logic
+If a day is marked fertile, you can trace exactly which rule caused it.
+
+PRIVACY FIRST
+• Everything is stored locally on your device
+• No account, no sign-in, no cloud
+• No ads, no analytics, no trackers
+• Works fully offline — nothing leaves your phone
+
+LEARN THE METHOD
+Crest includes an extensive section on the biology behind the method: the hormonal cycle, why the biomarkers work, and how the rules follow from the underlying physiology. Ideally you learn STM from a qualified instructor — this is here so you can understand the method properly rather than follow rules on faith.
+
+FREE
+The full app is free for everyone. If you'd like to support development you can leave an optional tip, but it unlocks nothing — everyone gets the complete app.
+
+IMPORTANT
+Crest is a charting tool, not a medical device. It does not provide medical advice, diagnosis, or treatment, and is not a substitute for a qualified instructor. The symptothermal method is effective when applied correctly by someone trained in it. If you use STM to avoid pregnancy, learn the method properly before relying on it.
+
+Crest is an independent project. It is compatible with the symptothermal method as taught by the AG NFP / Malteser, but is not affiliated with, endorsed by, or certified by any organization. "Sensiplan" is a registered trademark of the Malteser AG NFP and is not used to describe this app.
