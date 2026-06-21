@@ -1305,6 +1305,210 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Set'**
   String get set;
+
+  /// No description provided for @statsNoInsights.
+  ///
+  /// In en, this message translates to:
+  /// **'No insights yet'**
+  String get statsNoInsights;
+
+  /// No description provided for @statsNoInsightsSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete at least one cycle to see your statistics.'**
+  String get statsNoInsightsSub;
+
+  /// No description provided for @cycleLengthHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Cycle Length History'**
+  String get cycleLengthHistory;
+
+  /// No description provided for @allCycles.
+  ///
+  /// In en, this message translates to:
+  /// **'All Cycles'**
+  String get allCycles;
+
+  /// No description provided for @daysUntilPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'{days, plural, =1{1 day until predicted period} other{{days} days until predicted period}}'**
+  String daysUntilPeriod(int days);
+
+  /// No description provided for @periodExpectedIn.
+  ///
+  /// In en, this message translates to:
+  /// **'{days, plural, =1{Period expected in 1 day} other{Period expected in {days} days}}'**
+  String periodExpectedIn(int days);
+
+  /// No description provided for @periodExpectedToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Period expected today'**
+  String get periodExpectedToday;
+
+  /// No description provided for @daysPastExpected.
+  ///
+  /// In en, this message translates to:
+  /// **'{days, plural, =1{1 day past expected date} other{{days} days past expected date}}'**
+  String daysPastExpected(int days);
+
+  /// No description provided for @predictionEst.
+  ///
+  /// In en, this message translates to:
+  /// **'Est. {date} (based on avg {avg}-day cycle)'**
+  String predictionEst(String date, String avg);
+
+  /// No description provided for @regVeryRegular.
+  ///
+  /// In en, this message translates to:
+  /// **'Very regular'**
+  String get regVeryRegular;
+
+  /// No description provided for @regRegular.
+  ///
+  /// In en, this message translates to:
+  /// **'Regular'**
+  String get regRegular;
+
+  /// No description provided for @regSomewhat.
+  ///
+  /// In en, this message translates to:
+  /// **'Somewhat irregular'**
+  String get regSomewhat;
+
+  /// No description provided for @regIrregular.
+  ///
+  /// In en, this message translates to:
+  /// **'Irregular'**
+  String get regIrregular;
+
+  /// No description provided for @regNotEnough.
+  ///
+  /// In en, this message translates to:
+  /// **'Not enough data'**
+  String get regNotEnough;
+
+  /// No description provided for @crossCycleInsights.
+  ///
+  /// In en, this message translates to:
+  /// **'Cross-Cycle Insights'**
+  String get crossCycleInsights;
+
+  /// No description provided for @insightRegularity.
+  ///
+  /// In en, this message translates to:
+  /// **'Regularity'**
+  String get insightRegularity;
+
+  /// No description provided for @insightVariation.
+  ///
+  /// In en, this message translates to:
+  /// **'Variation'**
+  String get insightVariation;
+
+  /// No description provided for @variationDays.
+  ///
+  /// In en, this message translates to:
+  /// **'±{value} days'**
+  String variationDays(String value);
+
+  /// No description provided for @insightAvgShift.
+  ///
+  /// In en, this message translates to:
+  /// **'Avg temp shift'**
+  String get insightAvgShift;
+
+  /// No description provided for @insightCyclesRecorded.
+  ///
+  /// In en, this message translates to:
+  /// **'Cycles recorded'**
+  String get insightCyclesRecorded;
+
+  /// No description provided for @cyclesCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} completed'**
+  String cyclesCompleted(int count);
+
+  /// No description provided for @moreCyclesNeeded.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 more cycle needed for advanced pre-ov rules (minus-20, minus-8)} other{{count} more cycles needed for advanced pre-ov rules (minus-20, minus-8)}}'**
+  String moreCyclesNeeded(int count);
+
+  /// No description provided for @statTotalCycles.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Cycles'**
+  String get statTotalCycles;
+
+  /// No description provided for @statAvgLength.
+  ///
+  /// In en, this message translates to:
+  /// **'Avg Length'**
+  String get statAvgLength;
+
+  /// No description provided for @statShortest.
+  ///
+  /// In en, this message translates to:
+  /// **'Shortest'**
+  String get statShortest;
+
+  /// No description provided for @statLongest.
+  ///
+  /// In en, this message translates to:
+  /// **'Longest'**
+  String get statLongest;
+
+  /// No description provided for @daysUnit.
+  ///
+  /// In en, this message translates to:
+  /// **'{value} days'**
+  String daysUnit(String value);
+
+  /// No description provided for @chartAvg.
+  ///
+  /// In en, this message translates to:
+  /// **'Avg: {value}'**
+  String chartAvg(String value);
+
+  /// No description provided for @currentCycleDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Current cycle · Day {day}'**
+  String currentCycleDay(int day);
+
+  /// No description provided for @active.
+  ///
+  /// In en, this message translates to:
+  /// **'Active'**
+  String get active;
+
+  /// No description provided for @deleteCycleTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete cycle'**
+  String get deleteCycleTooltip;
+
+  /// No description provided for @deleteCycleTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Cycle?'**
+  String get deleteCycleTitle;
+
+  /// No description provided for @deleteCycleBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete the cycle starting {date}?\n\nAll entries in this cycle will also be deleted. This cannot be undone.'**
+  String deleteCycleBody(String date);
+
+  /// No description provided for @cycleDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Cycle deleted'**
+  String get cycleDeleted;
 }
 
 class _AppLocalizationsDelegate

@@ -4,6 +4,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:intl/intl.dart';
 import '../providers/cycle_provider.dart';
 import '../models/cycle.dart';
+import '../l10n/app_localizations.dart';
 
 class StatisticsScreen extends StatelessWidget {
   const StatisticsScreen({super.key});
@@ -12,6 +13,8 @@ class StatisticsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
+    final l = AppLocalizations.of(context)!;
+    final locale = Localizations.localeOf(context).toString();
 
     return Consumer<CycleProvider>(
       builder: (context, provider, _) {
@@ -29,13 +32,13 @@ class StatisticsScreen extends StatelessWidget {
                       size: 56,
                       color: colors.onSurfaceVariant.withAlpha(120)),
                   const SizedBox(height: 16),
-                  Text('No insights yet',
+                  Text(l.statsNoInsights,
                       style: theme.textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.w600,
                       )),
                   const SizedBox(height: 8),
                   Text(
-                    'Complete at least one cycle to see your statistics.',
+                    l.statsNoInsightsSub,
                     textAlign: TextAlign.center,
                     style: theme.textTheme.bodyMedium?.copyWith(
                       color: colors.onSurfaceVariant,
@@ -50,37 +53,37 @@ class StatisticsScreen extends StatelessWidget {
         return ListView(
           padding: const EdgeInsets.all(16),
           children: [
-            _buildStatGrid(provider, colors),
+            _buildStatGrid(provider, colors, l),
             const SizedBox(height: 16),
 
             // Prediction card
             if (provider.predictedNextPeriod != null)
-              _buildPredictionCard(provider, colors, theme),
+              _buildPredictionCard(provider, colors, theme, l, locale),
             if (provider.predictedNextPeriod != null)
               const SizedBox(height: 16),
 
             // Cross-cycle insights
             if (lengths.length >= 3)
-              _buildInsightsCard(provider, colors, theme),
+              _buildInsightsCard(provider, colors, theme, l),
             if (lengths.length >= 3) const SizedBox(height: 16),
 
             if (lengths.length >= 2) ...[
-              Text('Cycle Length History',
+              Text(l.cycleLengthHistory,
                   style: theme.textTheme.titleSmall?.copyWith(
                     fontWeight: FontWeight.w600,
                   )),
               const SizedBox(height: 12),
-              _buildCycleLengthChart(lengths, colors),
+              _buildCycleLengthChart(lengths, colors, l),
               const SizedBox(height: 24),
             ],
 
-            Text('All Cycles',
+            Text(l.allCycles,
                 style: theme.textTheme.titleSmall?.copyWith(
                   fontWeight: FontWeight.w600,
                 )),
             const SizedBox(height: 12),
-            ...cycles.map(
-                (cycle) => _buildCycleCard(context, cycle, provider, colors)),
+            ...cycles.map((cycle) =>
+                _buildCycleCard(context, cycle, provider, colors, l, locale)),
           ],
         );
       },
@@ -88,7 +91,8 @@ class StatisticsScreen extends StatelessWidget {
   }
 
   Widget _buildPredictionCard(
-      CycleProvider provider, ColorScheme colors, ThemeData theme) {
+      CycleProvider provider, ColorScheme colors, ThemeData theme,
+      AppLocalizations l, String locale) {
     final predicted = provider.predictedNextPeriod!;
     final daysUntil = provider.daysUntilNextPeriod!;
 
@@ -97,19 +101,19 @@ class StatisticsScreen extends StatelessWidget {
     IconData statusIcon;
 
     if (daysUntil > 3) {
-      statusText = '$daysUntil days until predicted period';
+      statusText = l.daysUntilPeriod(daysUntil);
       statusColor = colors.primary;
       statusIcon = Icons.calendar_today_outlined;
     } else if (daysUntil > 0) {
-      statusText = 'Period expected in $daysUntil day${daysUntil == 1 ? '' : 's'}';
+      statusText = l.periodExpectedIn(daysUntil);
       statusColor = colors.tertiary;
       statusIcon = Icons.upcoming_outlined;
     } else if (daysUntil == 0) {
-      statusText = 'Period expected today';
+      statusText = l.periodExpectedToday;
       statusColor = colors.error;
       statusIcon = Icons.today;
     } else {
-      statusText = '${-daysUntil} day${daysUntil == -1 ? '' : 's'} past expected date';
+      statusText = l.daysPastExpected(-daysUntil);
       statusColor = colors.error;
       statusIcon = Icons.event_busy_outlined;
     }
@@ -144,8 +148,9 @@ class StatisticsScreen extends StatelessWidget {
                     )),
                 const SizedBox(height: 2),
                 Text(
-                  'Est. ${DateFormat('MMM d').format(predicted)} '
-                  '(based on avg ${provider.averageCycleLength?.toStringAsFixed(0)}-day cycle)',
+                  l.predictionEst(
+                      DateFormat('MMM d', locale).format(predicted),
+                      provider.averageCycleLength?.toStringAsFixed(0) ?? '—'),
                   style: TextStyle(
                     fontSize: 12,
                     color: colors.onSurfaceVariant,
@@ -160,7 +165,8 @@ class StatisticsScreen extends StatelessWidget {
   }
 
   Widget _buildInsightsCard(
-      CycleProvider provider, ColorScheme colors, ThemeData theme) {
+      CycleProvider provider, ColorScheme colors, ThemeData theme,
+      AppLocalizations l) {
     final stdDev = provider.cycleLengthStdDev;
     final avgShift = provider.averageTempShiftDay;
     final completed = provider.completedCycleCount;
@@ -169,20 +175,20 @@ class StatisticsScreen extends StatelessWidget {
     Color regularityColor;
     if (stdDev != null) {
       if (stdDev <= 2.0) {
-        regularity = 'Very regular';
+        regularity = l.regVeryRegular;
         regularityColor = Colors.green;
       } else if (stdDev <= 4.0) {
-        regularity = 'Regular';
+        regularity = l.regRegular;
         regularityColor = Colors.green.shade300;
       } else if (stdDev <= 7.0) {
-        regularity = 'Somewhat irregular';
+        regularity = l.regSomewhat;
         regularityColor = Colors.orange;
       } else {
-        regularity = 'Irregular';
+        regularity = l.regIrregular;
         regularityColor = colors.error;
       }
     } else {
-      regularity = 'Not enough data';
+      regularity = l.regNotEnough;
       regularityColor = colors.onSurfaceVariant;
     }
 
@@ -200,7 +206,7 @@ class StatisticsScreen extends StatelessWidget {
               Icon(Icons.analytics_outlined,
                   size: 18, color: colors.primary),
               const SizedBox(width: 8),
-              Text('Cross-Cycle Insights',
+              Text(l.crossCycleInsights,
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 14,
@@ -209,14 +215,15 @@ class StatisticsScreen extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 12),
-          _insightRow('Regularity', regularity, regularityColor, colors),
+          _insightRow(l.insightRegularity, regularity, regularityColor, colors),
           if (stdDev != null)
-            _insightRow('Variation', '\u00B1${stdDev.toStringAsFixed(1)} days',
+            _insightRow(l.insightVariation,
+                l.variationDays(stdDev.toStringAsFixed(1)),
                 colors.onSurface, colors),
           if (avgShift != null)
-            _insightRow('Avg temp shift', 'Day ${avgShift.toStringAsFixed(0)}',
+            _insightRow(l.insightAvgShift, l.evalDayValue(avgShift.round()),
                 colors.onSurface, colors),
-          _insightRow('Cycles recorded', '$completed completed',
+          _insightRow(l.insightCyclesRecorded, l.cyclesCompleted(completed),
               colors.onSurface, colors),
           if (completed < 12) ...[
             const SizedBox(height: 8),
@@ -234,8 +241,7 @@ class StatisticsScreen extends StatelessWidget {
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(
-                      '${12 - completed} more cycle${12 - completed == 1 ? '' : 's'} '
-                      'needed for advanced pre-ov rules (minus-20, minus-8)',
+                      l.moreCyclesNeeded(12 - completed),
                       style: TextStyle(
                           fontSize: 12, color: colors.tertiary),
                     ),
@@ -271,7 +277,7 @@ class StatisticsScreen extends StatelessWidget {
   }
 
   Widget _buildStatGrid(
-      CycleProvider provider, ColorScheme colors) {
+      CycleProvider provider, ColorScheme colors, AppLocalizations l) {
     return GridView.count(
       crossAxisCount: 2,
       shrinkWrap: true,
@@ -281,23 +287,24 @@ class StatisticsScreen extends StatelessWidget {
       childAspectRatio: 2.2,
       children: [
         _statCard(
-            'Total Cycles', '${provider.cycles.length}', colors),
+            l.statTotalCycles, '${provider.cycles.length}', colors),
         _statCard(
-            'Avg Length',
+            l.statAvgLength,
             provider.averageCycleLength != null
-                ? '${provider.averageCycleLength!.toStringAsFixed(1)} days'
+                ? l.daysUnit(
+                    provider.averageCycleLength!.toStringAsFixed(1))
                 : '\u2014',
             colors),
         _statCard(
-            'Shortest',
+            l.statShortest,
             provider.shortestCycle != null
-                ? '${provider.shortestCycle} days'
+                ? l.daysUnit('${provider.shortestCycle}')
                 : '\u2014',
             colors),
         _statCard(
-            'Longest',
+            l.statLongest,
             provider.longestCycle != null
-                ? '${provider.longestCycle} days'
+                ? l.daysUnit('${provider.longestCycle}')
                 : '\u2014',
             colors),
       ],
@@ -335,7 +342,7 @@ class StatisticsScreen extends StatelessWidget {
   }
 
   Widget _buildCycleLengthChart(
-      List<int> lengths, ColorScheme colors) {
+      List<int> lengths, ColorScheme colors, AppLocalizations l) {
     final avg =
         lengths.reduce((a, b) => a + b) / lengths.length;
 
@@ -419,7 +426,7 @@ class StatisticsScreen extends StatelessWidget {
                 label: HorizontalLineLabel(
                   show: true,
                   labelResolver: (_) =>
-                      'Avg: ${avg.toStringAsFixed(1)}',
+                      l.chartAvg(avg.toStringAsFixed(1)),
                   style: TextStyle(
                       color: colors.tertiary, fontSize: 10),
                 ),
@@ -433,7 +440,7 @@ class StatisticsScreen extends StatelessWidget {
 
   Widget _buildCycleCard(
       BuildContext context, Cycle cycle, CycleProvider provider,
-      ColorScheme colors) {
+      ColorScheme colors, AppLocalizations l, String locale) {
     final isActive = cycle.endDate == null;
 
     return Container(
@@ -474,15 +481,15 @@ class StatisticsScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          '${DateFormat('MMM d, yyyy').format(cycle.startDate)}'
-          '${cycle.endDate != null ? ' \u2014 ${DateFormat('MMM d').format(cycle.endDate!)}' : ''}',
+          '${DateFormat('MMM d, yyyy', locale).format(cycle.startDate)}'
+          '${cycle.endDate != null ? ' \u2014 ${DateFormat('MMM d', locale).format(cycle.endDate!)}' : ''}',
           style: const TextStyle(
               fontSize: 14, fontWeight: FontWeight.w500),
         ),
         subtitle: Text(
           isActive
-              ? 'Current cycle \u00B7 Day ${cycle.currentDayCount}'
-              : '${cycle.length} days',
+              ? l.currentCycleDay(cycle.currentDayCount)
+              : l.daysUnit('${cycle.length}'),
           style: TextStyle(
             fontSize: 13,
             color: colors.onSurfaceVariant,
@@ -499,7 +506,7 @@ class StatisticsScreen extends StatelessWidget {
                   color: colors.primary,
                   borderRadius: BorderRadius.circular(6),
                 ),
-                child: Text('Active',
+                child: Text(l.active,
                     style: TextStyle(
                       color: colors.onPrimary,
                       fontSize: 11,
@@ -510,7 +517,7 @@ class StatisticsScreen extends StatelessWidget {
               IconButton(
                 icon: Icon(Icons.delete_outline,
                     size: 20, color: colors.error.withAlpha(160)),
-                tooltip: 'Delete cycle',
+                tooltip: l.deleteCycleTooltip,
                 onPressed: () =>
                     _confirmDeleteCycle(context, cycle, provider, colors),
               ),
@@ -526,27 +533,24 @@ class StatisticsScreen extends StatelessWidget {
 
   void _confirmDeleteCycle(BuildContext context, Cycle cycle,
       CycleProvider provider, ColorScheme colors) async {
+    final l = AppLocalizations.of(context)!;
+    final locale = Localizations.localeOf(context).toString();
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Delete Cycle?'),
-        content: Text(
-          'Delete the cycle starting '
-          '${DateFormat('MMM d, yyyy').format(cycle.startDate)}'
-          '${cycle.length != null ? ' (${cycle.length} days)' : ''}?\n\n'
-          'All entries in this cycle will also be deleted. '
-          'This cannot be undone.',
-        ),
+        title: Text(l.deleteCycleTitle),
+        content: Text(l.deleteCycleBody(
+            DateFormat('MMM d, yyyy', locale).format(cycle.startDate))),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx, false),
-            child: const Text('Cancel'),
+            child: Text(l.cancel),
           ),
           FilledButton(
             style:
                 FilledButton.styleFrom(backgroundColor: colors.error),
             onPressed: () => Navigator.pop(ctx, true),
-            child: const Text('Delete'),
+            child: Text(l.delete),
           ),
         ],
       ),
@@ -556,9 +560,9 @@ class StatisticsScreen extends StatelessWidget {
       await provider.deleteCycle(cycle);
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Cycle deleted'),
-            duration: Duration(seconds: 2),
+          SnackBar(
+            content: Text(l.cycleDeleted),
+            duration: const Duration(seconds: 2),
           ),
         );
       }

@@ -664,4 +664,154 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get set => 'Définir';
+
+  @override
+  String get statsNoInsights => 'Pas encore de statistiques';
+
+  @override
+  String get statsNoInsightsSub =>
+      'Terminez au moins un cycle pour voir vos statistiques.';
+
+  @override
+  String get cycleLengthHistory => 'Historique de la durée des cycles';
+
+  @override
+  String get allCycles => 'Tous les cycles';
+
+  @override
+  String daysUntilPeriod(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days jours avant les règles prévues',
+      one: '1 jour avant les règles prévues',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String periodExpectedIn(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: 'Règles prévues dans $days jours',
+      one: 'Règles prévues dans 1 jour',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get periodExpectedToday => 'Règles prévues aujourd\'hui';
+
+  @override
+  String daysPastExpected(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days jours de retard sur la date prévue',
+      one: '1 jour de retard sur la date prévue',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String predictionEst(String date, String avg) {
+    return 'Env. $date (sur la base d\'un cycle moyen de $avg jours)';
+  }
+
+  @override
+  String get regVeryRegular => 'Très régulier';
+
+  @override
+  String get regRegular => 'Régulier';
+
+  @override
+  String get regSomewhat => 'Un peu irrégulier';
+
+  @override
+  String get regIrregular => 'Irrégulier';
+
+  @override
+  String get regNotEnough => 'Pas assez de données';
+
+  @override
+  String get crossCycleInsights => 'Analyse multi-cycles';
+
+  @override
+  String get insightRegularity => 'Régularité';
+
+  @override
+  String get insightVariation => 'Variation';
+
+  @override
+  String variationDays(String value) {
+    return '±$value jours';
+  }
+
+  @override
+  String get insightAvgShift => 'Hausse temp. moy.';
+
+  @override
+  String get insightCyclesRecorded => 'Cycles enregistrés';
+
+  @override
+  String cyclesCompleted(int count) {
+    return '$count terminés';
+  }
+
+  @override
+  String moreCyclesNeeded(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          'Encore $count cycles requis pour les règles avancées (moins-20, moins-8)',
+      one: 'Encore 1 cycle requis pour les règles avancées (moins-20, moins-8)',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get statTotalCycles => 'Cycles au total';
+
+  @override
+  String get statAvgLength => 'Durée moy.';
+
+  @override
+  String get statShortest => 'Le plus court';
+
+  @override
+  String get statLongest => 'Le plus long';
+
+  @override
+  String daysUnit(String value) {
+    return '$value jours';
+  }
+
+  @override
+  String chartAvg(String value) {
+    return 'Moy. : $value';
+  }
+
+  @override
+  String currentCycleDay(int day) {
+    return 'Cycle actuel · jour $day';
+  }
+
+  @override
+  String get active => 'Actif';
+
+  @override
+  String get deleteCycleTooltip => 'Supprimer le cycle';
+
+  @override
+  String get deleteCycleTitle => 'Supprimer le cycle ?';
+
+  @override
+  String deleteCycleBody(String date) {
+    return 'Supprimer le cycle commençant le $date ?\n\nToutes les saisies de ce cycle seront aussi supprimées. Cette action est irréversible.';
+  }
+
+  @override
+  String get cycleDeleted => 'Cycle supprimé';
 }

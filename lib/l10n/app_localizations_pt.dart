@@ -663,4 +663,154 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get set => 'Definir';
+
+  @override
+  String get statsNoInsights => 'Ainda não há estatísticas';
+
+  @override
+  String get statsNoInsightsSub =>
+      'Conclua pelo menos um ciclo para ver suas estatísticas.';
+
+  @override
+  String get cycleLengthHistory => 'Histórico de duração do ciclo';
+
+  @override
+  String get allCycles => 'Todos os ciclos';
+
+  @override
+  String daysUntilPeriod(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days dias até a menstruação prevista',
+      one: '1 dia até a menstruação prevista',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String periodExpectedIn(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: 'Menstruação prevista em $days dias',
+      one: 'Menstruação prevista em 1 dia',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get periodExpectedToday => 'Menstruação prevista para hoje';
+
+  @override
+  String daysPastExpected(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days dias de atraso sobre o previsto',
+      one: '1 dia de atraso sobre o previsto',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String predictionEst(String date, String avg) {
+    return 'Aprox. $date (com base em ciclo médio de $avg dias)';
+  }
+
+  @override
+  String get regVeryRegular => 'Muito regular';
+
+  @override
+  String get regRegular => 'Regular';
+
+  @override
+  String get regSomewhat => 'Um pouco irregular';
+
+  @override
+  String get regIrregular => 'Irregular';
+
+  @override
+  String get regNotEnough => 'Dados insuficientes';
+
+  @override
+  String get crossCycleInsights => 'Análise entre ciclos';
+
+  @override
+  String get insightRegularity => 'Regularidade';
+
+  @override
+  String get insightVariation => 'Variação';
+
+  @override
+  String variationDays(String value) {
+    return '±$value dias';
+  }
+
+  @override
+  String get insightAvgShift => 'Mudança térmica média';
+
+  @override
+  String get insightCyclesRecorded => 'Ciclos registrados';
+
+  @override
+  String cyclesCompleted(int count) {
+    return '$count concluídos';
+  }
+
+  @override
+  String moreCyclesNeeded(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          'Faltam $count ciclos para as regras avançadas (menos-20, menos-8)',
+      one: 'Falta 1 ciclo para as regras avançadas (menos-20, menos-8)',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get statTotalCycles => 'Ciclos no total';
+
+  @override
+  String get statAvgLength => 'Duração média';
+
+  @override
+  String get statShortest => 'Mais curto';
+
+  @override
+  String get statLongest => 'Mais longo';
+
+  @override
+  String daysUnit(String value) {
+    return '$value dias';
+  }
+
+  @override
+  String chartAvg(String value) {
+    return 'Média: $value';
+  }
+
+  @override
+  String currentCycleDay(int day) {
+    return 'Ciclo atual · dia $day';
+  }
+
+  @override
+  String get active => 'Ativo';
+
+  @override
+  String get deleteCycleTooltip => 'Excluir ciclo';
+
+  @override
+  String get deleteCycleTitle => 'Excluir ciclo?';
+
+  @override
+  String deleteCycleBody(String date) {
+    return 'Excluir o ciclo que começa em $date?\n\nTodos os registros deste ciclo também serão excluídos. Isto não pode ser desfeito.';
+  }
+
+  @override
+  String get cycleDeleted => 'Ciclo excluído';
 }
