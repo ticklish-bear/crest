@@ -1509,6 +1509,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Cycle deleted'**
   String get cycleDeleted;
+
+  /// No description provided for @learnTabMethod.
+  ///
+  /// In en, this message translates to:
+  /// **'The Method'**
+  String get learnTabMethod;
+
+  /// No description provided for @learnTabFaq.
+  ///
+  /// In en, this message translates to:
+  /// **'FAQ'**
+  String get learnTabFaq;
+
+  /// No description provided for @learnTabAtlas.
+  ///
+  /// In en, this message translates to:
+  /// **'Mucus Atlas'**
+  String get learnTabAtlas;
+
+  /// No description provided for @learnIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Learn at your own pace. Tap any topic to expand it.'**
+  String get learnIntro;
 }
 
 class _AppLocalizationsDelegate

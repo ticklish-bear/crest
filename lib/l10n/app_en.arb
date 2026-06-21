@@ -269,5 +269,10 @@
   "deleteCycleTitle": "Delete Cycle?",
   "deleteCycleBody": "Delete the cycle starting {date}?\n\nAll entries in this cycle will also be deleted. This cannot be undone.",
   "@deleteCycleBody": { "placeholders": { "date": { "type": "String" } } },
-  "cycleDeleted": "Cycle deleted"
+  "cycleDeleted": "Cycle deleted",
+
+  "learnTabMethod": "The Method",
+  "learnTabFaq": "FAQ",
+  "learnTabAtlas": "Mucus Atlas",
+  "learnIntro": "Learn at your own pace. Tap any topic to expand it."
 }

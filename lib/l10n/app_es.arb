@@ -269,5 +269,10 @@
   "deleteCycleTitle": "¿Eliminar ciclo?",
   "deleteCycleBody": "¿Eliminar el ciclo que empieza el {date}?\n\nTodos los registros de este ciclo también se eliminarán. Esto no se puede deshacer.",
   "@deleteCycleBody": { "placeholders": { "date": { "type": "String" } } },
-  "cycleDeleted": "Ciclo eliminado"
+  "cycleDeleted": "Ciclo eliminado",
+
+  "learnTabMethod": "El método",
+  "learnTabFaq": "Preguntas",
+  "learnTabAtlas": "Atlas del moco",
+  "learnIntro": "Aprende a tu ritmo. Toca cualquier tema para ampliarlo."
 }

@@ -813,4 +813,17 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get cycleDeleted => 'Ciclo excluído';
+
+  @override
+  String get learnTabMethod => 'O método';
+
+  @override
+  String get learnTabFaq => 'Perguntas';
+
+  @override
+  String get learnTabAtlas => 'Atlas do muco';
+
+  @override
+  String get learnIntro =>
+      'Aprenda no seu ritmo. Toque em qualquer tópico para expandi-lo.';
 }

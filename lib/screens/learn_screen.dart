@@ -1,21 +1,24 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
+import '../l10n/app_localizations.dart';
+import '../content/learn_content.dart';
 
 class LearnScreen extends StatelessWidget {
   const LearnScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context)!;
     return DefaultTabController(
       length: 3,
       child: Column(
         children: [
           TabBar(
-            tabs: const [
-              Tab(text: 'The Method'),
-              Tab(text: 'FAQ'),
-              Tab(text: 'Mucus Atlas'),
+            tabs: [
+              Tab(text: l.learnTabMethod),
+              Tab(text: l.learnTabFaq),
+              Tab(text: l.learnTabAtlas),
             ],
             labelStyle: const TextStyle(
               fontWeight: FontWeight.w600,
@@ -52,6 +55,9 @@ class _MethodTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
+    final l = AppLocalizations.of(context)!;
+    final lang = Localizations.localeOf(context).languageCode;
+    final topics = methodTopics(lang);
 
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 20, 16, 32),
@@ -60,7 +66,7 @@ class _MethodTab extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(bottom: 20),
           child: Text(
-            'Learn at your own pace. Tap any topic to expand it.',
+            l.learnIntro,
             style: TextStyle(
               fontSize: 14,
               color: colors.onSurfaceVariant,
@@ -68,143 +74,13 @@ class _MethodTab extends StatelessWidget {
           ),
         ),
 
-        _TopicCard(
-          icon: Icons.auto_stories_outlined,
-          title: 'What is the Symptothermal Method?',
-          summary: 'A scientifically validated way to identify '
-              'fertile and infertile days using two body signs.',
-          body: 'The symptothermal method (STM) uses two independent '
-              'biological markers — basal body temperature and cervical '
-              'mucus — to identify the fertile and infertile phases '
-              'of each menstrual cycle.\n\n'
-              'Unlike calendar-based methods that predict from averages, '
-              'STM observes your body\'s actual signals each cycle. '
-              'A large study (Frank-Herrmann et al., 2007) found fewer '
-              'than 1 in 200 women per year became pregnant when '
-              'following the rules correctly.',
-          reference: 'Frank-Herrmann P et al. (2007). '
-              'Human Reproduction, 22(5), 1310–1319.',
-        ),
-
-        _TopicCard(
-          icon: Icons.loop,
-          title: 'Your Menstrual Cycle',
-          summary: 'How hormones drive the four phases of your cycle.',
-          body: 'Your cycle is controlled by a feedback loop between '
-              'your brain and ovaries. A typical cycle lasts 24–35 days, '
-              'but variation is normal.\n\n'
-              'The four phases:\n\n'
-              '1. Menstruation (~days 1–5)\n'
-              'The uterine lining sheds. Hormones are at their lowest.\n\n'
-              '2. Follicular phase (variable length)\n'
-              'Follicles mature in the ovaries. Rising estrogen '
-              'stimulates fertile mucus and thickens the uterine '
-              'lining. This phase varies in length — it\'s why '
-              'cycles aren\'t always the same.\n\n'
-              '3. Ovulation (~24 hours)\n'
-              'An LH surge triggers the release of a mature egg. '
-              'The egg survives 12–24 hours, but sperm can live up '
-              'to 5 days in fertile mucus.\n\n'
-              '4. Luteal phase (~10–16 days)\n'
-              'Progesterone rises, raising your temperature by 0.2–0.5°C '
-              'and causing mucus to dry up. This phase is quite '
-              'consistent from cycle to cycle.',
-          reference: 'Reed BG, Carr BR (2018). '
-              '"The Normal Menstrual Cycle and the Control of Ovulation." '
-              'In: Endotext. PMID: 25905282.',
-        ),
-
-        _TopicCard(
-          icon: Icons.thermostat_outlined,
-          title: 'Sign 1: Temperature',
-          summary: 'How the "3-over-6" rule confirms ovulation.',
-          body: 'Your basal body temperature (BBT) is your resting '
-              'temperature, measured right after waking. After ovulation, '
-              'progesterone causes it to rise by at least 0.2°C.\n\n'
-              'The 3-over-6 rule:\n'
-              '① Identify the 6 low temps before the suspected shift\n'
-              '② The coverline = highest of those 6\n'
-              '③ 3 consecutive temps must be above the coverline\n'
-              '④ The 3rd must be ≥0.2°C above the coverline\n\n'
-              'If ④ isn\'t met, wait for a 4th high temp (which '
-              'doesn\'t need the 0.2°C margin).\n\n'
-              'Tip: Measure at the same time each day (±30 min). '
-              'Alcohol, illness, or poor sleep can disturb readings — '
-              'mark those as "excluded."',
-          reference: 'Colombo B, Masarotto G (2000). '
-              'Demographic Research, 3(5).',
-        ),
-
-        _TopicCard(
-          icon: Icons.water_drop_outlined,
-          title: 'Sign 2: Cervical Mucus',
-          summary: 'How mucus changes reveal your fertile window.',
-          body: 'Cervical mucus changes throughout the cycle in '
-              'response to hormone levels. It\'s the primary sign '
-              'that opens the fertile window.\n\n'
-              'Observe both sensation (what you feel) and appearance '
-              '(what you see). Record the highest quality of the day.\n\n'
-              'Typical progression:\n'
-              'Dry → Sticky/cloudy → Wet/creamy → Egg white/slippery '
-              '→ Back to dry after ovulation\n\n'
-              'The "Peak Day" is the last day of best-quality mucus '
-              'before it drops. You identify it retrospectively.\n\n'
-              'See the "Mucus Atlas" tab for a visual guide to each '
-              'category.',
-          reference: 'Bigelow JL et al. (2004). '
-              'Human Reproduction, 19(4), 889–892.',
-        ),
-
-        _TopicCard(
-          icon: Icons.rule_outlined,
-          title: 'The Rules: Pre-Ovulatory Phase',
-          summary: 'Which days at the start of the cycle are infertile.',
-          body: 'Calendar-based rules determine how many early days '
-              'can be considered infertile. The most conservative '
-              '(lowest) always applies:\n\n'
-              '• 5-day rule (beginners, <12 cycles): '
-              'Days 1–5 are infertile.\n\n'
-              '• Rötzer 6-day rule: Days 1–6, but only if ALL '
-              'recorded cycles were ≥26 days.\n\n'
-              '• Minus-20 rule (12+ cycles): Shortest cycle ever '
-              'minus 20 = last infertile day.\n\n'
-              '• Minus-8 rule (12+ cycles): Earliest temperature '
-              'rise day minus 8.\n\n'
-              'Critical: Any fertile cervical mucus immediately '
-              'overrides these calculations. Mucus always takes '
-              'priority over calendar rules.',
-        ),
-
-        _TopicCard(
-          icon: Icons.check_circle_outline,
-          title: 'The Rules: Post-Ovulatory Phase',
-          summary: 'How the "double-check" confirms infertility.',
-          body: 'Post-ovulatory infertility begins on the LATER of:\n\n'
-              '• Evening of the 3rd day after Peak Day\n'
-              '• Evening of the 3rd consecutive high temperature\n\n'
-              'Both conditions must be met — this is the "double-check" '
-              'principle that makes STM so reliable. If temperature '
-              'confirms on day 17 but Peak Day + 3 is day 19, the '
-              'infertile phase begins on day 19.\n\n'
-              'This is the most reliable phase in the entire cycle.',
-        ),
-
-        _TopicCard(
-          icon: Icons.verified_outlined,
-          title: 'How Reliable Is STM?',
-          summary: '99.6% effective with correct use.',
-          body: 'Method-use effectiveness: 99.6%\n'
-              'Typical-use effectiveness: 98.2%\n'
-              'Pearl Index (correct use): 0.4\n\n'
-              'For comparison, the pill has a typical-use Pearl Index '
-              'of 7–9, and condoms about 13–18.\n\n'
-              'The key is correct observation and honest recording. '
-              'This app supports you, but YOU interpret and apply '
-              'the rules. Consider taking a certified course, '
-              'especially when starting out.',
-          reference: 'Frank-Herrmann P et al. (2007). Human Reproduction. '
-              '\nManhart MD et al. (2013). Osteopathic Family Physician, 5(1).',
-        ),
+        ...topics.map((t) => _TopicCard(
+              icon: t.icon,
+              title: t.title,
+              summary: t.summary,
+              body: t.body,
+              reference: t.reference,
+            )),
 
         const SizedBox(height: 8),
       ],

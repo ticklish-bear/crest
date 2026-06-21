@@ -269,5 +269,10 @@
   "deleteCycleTitle": "Supprimer le cycle ?",
   "deleteCycleBody": "Supprimer le cycle commençant le {date} ?\n\nToutes les saisies de ce cycle seront aussi supprimées. Cette action est irréversible.",
   "@deleteCycleBody": { "placeholders": { "date": { "type": "String" } } },
-  "cycleDeleted": "Cycle supprimé"
+  "cycleDeleted": "Cycle supprimé",
+
+  "learnTabMethod": "La méthode",
+  "learnTabFaq": "FAQ",
+  "learnTabAtlas": "Atlas de la glaire",
+  "learnIntro": "Apprenez à votre rythme. Touchez un sujet pour le développer."
 }

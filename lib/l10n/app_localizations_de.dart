@@ -814,4 +814,17 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get cycleDeleted => 'Zyklus gelöscht';
+
+  @override
+  String get learnTabMethod => 'Die Methode';
+
+  @override
+  String get learnTabFaq => 'FAQ';
+
+  @override
+  String get learnTabAtlas => 'Schleim-Atlas';
+
+  @override
+  String get learnIntro =>
+      'Lerne in deinem Tempo. Tippe ein Thema an, um es aufzuklappen.';
 }

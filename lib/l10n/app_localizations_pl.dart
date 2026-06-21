@@ -817,4 +817,17 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get cycleDeleted => 'Cykl usunięty';
+
+  @override
+  String get learnTabMethod => 'Metoda';
+
+  @override
+  String get learnTabFaq => 'FAQ';
+
+  @override
+  String get learnTabAtlas => 'Atlas śluzu';
+
+  @override
+  String get learnIntro =>
+      'Ucz się we własnym tempie. Dotknij tematu, aby go rozwinąć.';
 }

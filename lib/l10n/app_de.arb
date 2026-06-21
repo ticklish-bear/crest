@@ -269,5 +269,10 @@
   "deleteCycleTitle": "Zyklus löschen?",
   "deleteCycleBody": "Zyklus mit Beginn {date} löschen?\n\nAlle Einträge dieses Zyklus werden ebenfalls gelöscht. Kann nicht rückgängig gemacht werden.",
   "@deleteCycleBody": { "placeholders": { "date": { "type": "String" } } },
-  "cycleDeleted": "Zyklus gelöscht"
+  "cycleDeleted": "Zyklus gelöscht",
+
+  "learnTabMethod": "Die Methode",
+  "learnTabFaq": "FAQ",
+  "learnTabAtlas": "Schleim-Atlas",
+  "learnIntro": "Lerne in deinem Tempo. Tippe ein Thema an, um es aufzuklappen."
 }

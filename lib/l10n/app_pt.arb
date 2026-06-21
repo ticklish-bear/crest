@@ -269,5 +269,10 @@
   "deleteCycleTitle": "Excluir ciclo?",
   "deleteCycleBody": "Excluir o ciclo que começa em {date}?\n\nTodos os registros deste ciclo também serão excluídos. Isto não pode ser desfeito.",
   "@deleteCycleBody": { "placeholders": { "date": { "type": "String" } } },
-  "cycleDeleted": "Ciclo excluído"
+  "cycleDeleted": "Ciclo excluído",
+
+  "learnTabMethod": "O método",
+  "learnTabFaq": "Perguntas",
+  "learnTabAtlas": "Atlas do muco",
+  "learnIntro": "Aprenda no seu ritmo. Toque em qualquer tópico para expandi-lo."
 }

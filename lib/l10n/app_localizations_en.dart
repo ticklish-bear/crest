@@ -811,4 +811,17 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cycleDeleted => 'Cycle deleted';
+
+  @override
+  String get learnTabMethod => 'The Method';
+
+  @override
+  String get learnTabFaq => 'FAQ';
+
+  @override
+  String get learnTabAtlas => 'Mucus Atlas';
+
+  @override
+  String get learnIntro =>
+      'Learn at your own pace. Tap any topic to expand it.';
 }
