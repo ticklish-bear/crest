@@ -274,5 +274,6 @@
   "learnTabMethod": "Metoda",
   "learnTabFaq": "FAQ",
   "learnTabAtlas": "Atlas śluzu",
-  "learnIntro": "Ucz się we własnym tempie. Dotknij tematu, aby go rozwinąć."
+  "learnIntro": "Ucz się we własnym tempie. Dotknij tematu, aby go rozwinąć.",
+  "learnFaqIntro": "Dotknij pytania, aby zobaczyć odpowiedź."
 }

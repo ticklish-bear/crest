@@ -824,4 +824,7 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get learnIntro =>
       'Learn at your own pace. Tap any topic to expand it.';
+
+  @override
+  String get learnFaqIntro => 'Tap a question to see the answer.';
 }

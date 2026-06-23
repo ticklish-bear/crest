@@ -830,4 +830,7 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get learnIntro =>
       'Ucz się we własnym tempie. Dotknij tematu, aby go rozwinąć.';
+
+  @override
+  String get learnFaqIntro => 'Dotknij pytania, aby zobaczyć odpowiedź.';
 }

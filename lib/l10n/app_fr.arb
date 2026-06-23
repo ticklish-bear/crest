@@ -274,5 +274,6 @@
   "learnTabMethod": "La méthode",
   "learnTabFaq": "FAQ",
   "learnTabAtlas": "Atlas de la glaire",
-  "learnIntro": "Apprenez à votre rythme. Touchez un sujet pour le développer."
+  "learnIntro": "Apprenez à votre rythme. Touchez un sujet pour le développer.",
+  "learnFaqIntro": "Touchez une question pour voir la réponse."
 }

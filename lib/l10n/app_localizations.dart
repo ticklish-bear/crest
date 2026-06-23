@@ -1533,6 +1533,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Learn at your own pace. Tap any topic to expand it.'**
   String get learnIntro;
+
+  /// No description provided for @learnFaqIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a question to see the answer.'**
+  String get learnFaqIntro;
 }
 
 class _AppLocalizationsDelegate

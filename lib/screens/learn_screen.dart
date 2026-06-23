@@ -98,6 +98,8 @@ class _FaqTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
+    final l = AppLocalizations.of(context)!;
+    final lang = Localizations.localeOf(context).languageCode;
 
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 20, 16, 32),
@@ -105,128 +107,15 @@ class _FaqTab extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(bottom: 16),
           child: Text(
-            'Tap a question to see the answer.',
+            l.learnFaqIntro,
             style: TextStyle(fontSize: 14, color: colors.onSurfaceVariant),
           ),
         ),
-
-        _sectionLabel('Getting Started', colors),
-
-        const _FaqItem(
-          question: 'How do I start using the method?',
-          answer: 'Record your basal body temperature every morning '
-              'before getting up, and observe your cervical mucus '
-              'throughout the day. Log both daily. For the first few '
-              'cycles, focus on learning your pattern.\n\n'
-              'Reading "Taking Charge of Your Fertility" (Weschler) '
-              'or taking a certified course is strongly recommended '
-              'before relying on the method.',
-        ),
-        const _FaqItem(
-          question: 'When and how do I measure temperature?',
-          answer: 'Measure immediately after waking, before getting '
-              'up or talking. Use a basal thermometer with 0.01°C '
-              'precision. Same time each day (±30 min).\n\n'
-              'You can measure orally (5 min under tongue), vaginally '
-              '(5 min), or rectally (3 min). Pick one method and '
-              'stick with it within a cycle.',
-        ),
-        const _FaqItem(
-          question: 'What if I slept badly or drank alcohol?',
-          answer: 'Mark the temperature as "excluded." Disturbed '
-              'values shouldn\'t be used for evaluation. Common '
-              'disturbances: alcohol, illness, poor sleep (<5 hrs), '
-              'late/early waking, travel, stress.\n\n'
-              'Better to exclude a questionable value than to get '
-              'a false evaluation.',
-        ),
-
-        _sectionLabel('Observing & Recording', colors),
-
-        const _FaqItem(
-          question: 'How do I observe cervical mucus?',
-          answer: 'Check each time you use the bathroom:\n\n'
-              '1. Sensation — does it feel dry, moist, wet, or '
-              'slippery?\n'
-              '2. Appearance — check toilet paper for nothing, '
-              'something cloudy, or something clear/stretchy.\n\n'
-              'Record the highest quality you observed that day. '
-              'See the "Mucus Atlas" tab for a visual guide.',
-        ),
-        const _FaqItem(
-          question: 'What is the "Peak Day"?',
-          answer: 'The last day of best-quality mucus before it '
-              'drops to a lower quality. You identify it '
-              'retrospectively — when today is less fertile than '
-              'yesterday, then yesterday was the Peak Day.\n\n'
-              'It closely correlates with ovulation (±1–2 days).',
-        ),
-        const _FaqItem(
-          question: 'What does the 3-over-6 rule mean?',
-          answer: '1. Find 6 low temps before the suspected shift\n'
-              '2. Coverline = highest of those 6\n'
-              '3. 3 consecutive temps must be above the coverline\n'
-              '4. The 3rd must be ≥0.2°C above the coverline\n\n'
-              'If condition 4 isn\'t met, wait for a 4th high temp.',
-        ),
-
-        _sectionLabel('Safety & Rules', colors),
-
-        const _FaqItem(
-          question: 'Are the first days really infertile?',
-          answer: 'For beginners (<12 cycles), the first 5 days are '
-              'infertile — provided there is no fertile mucus. After '
-              '12+ cycles, the app uses your history for a personalized '
-              'calculation.\n\n'
-              'Any fertile mucus observation immediately overrides '
-              'the calendar rule — even on day 3.',
-        ),
-        const _FaqItem(
-          question: 'Can I use STM with irregular cycles?',
-          answer: 'Yes. STM observes real signals rather than '
-              'predicting, so it works well with irregular cycles. '
-              'The pre-ovulatory safe days may be fewer, but the '
-              'post-ovulatory phase remains reliable.\n\n'
-              'Very irregular cycles may warrant medical investigation.',
-        ),
-        const _FaqItem(
-          question: 'What about breastfeeding or postpartum?',
-          answer: 'STM can be adapted, but the rules are more '
-              'complex. Work with a trained counselor during this '
-              'time. Standard app calculations assume established '
-              'cycling.',
-        ),
-        const _FaqItem(
-          question: 'How is STM different from the calendar method?',
-          answer: 'The calendar method predicts from past averages '
-              '(Pearl Index ~15–25). STM observes actual biological '
-              'signals in the current cycle (Pearl Index 0.4).\n\n'
-              'This app uses calendar calculations only as a '
-              'secondary tool — mucus always takes priority.',
-        ),
-
-        _sectionLabel('Using the App', colors),
-
-        const _FaqItem(
-          question: 'What does "avoiding" vs "achieving" mode mean?',
-          answer: 'It changes how labels appear:\n\n'
-              '• Avoiding: Conservative labels. Pre-ovulatory days '
-              'say "potentially fertile" since ovulation isn\'t '
-              'confirmed yet.\n\n'
-              '• Achieving: Standard STM labels. The fertile window '
-              'is highlighted for timing.\n\n'
-              'The underlying evaluation is identical.',
-        ),
-        const _FaqItem(
-          question: 'Should I trust the app blindly?',
-          answer: 'No. This is a charting tool, not a medical device. '
-              'You should learn the rules and verify the evaluation '
-              'makes sense. Use manual overrides (coverline, Peak Day) '
-              'if needed.\n\n'
-              'Tap the ℹ icon next to any label to see which rule '
-              'was applied and why.',
-        ),
-
+        for (final section in faqSections(lang)) ...[
+          _sectionLabel(section.label, colors),
+          for (final item in section.items)
+            _FaqItem(question: item.question, answer: item.answer),
+        ],
         const SizedBox(height: 8),
       ],
     );

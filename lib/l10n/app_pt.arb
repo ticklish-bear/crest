@@ -274,5 +274,6 @@
   "learnTabMethod": "O método",
   "learnTabFaq": "Perguntas",
   "learnTabAtlas": "Atlas do muco",
-  "learnIntro": "Aprenda no seu ritmo. Toque em qualquer tópico para expandi-lo."
+  "learnIntro": "Aprenda no seu ritmo. Toque em qualquer tópico para expandi-lo.",
+  "learnFaqIntro": "Toque em uma pergunta para ver a resposta."
 }

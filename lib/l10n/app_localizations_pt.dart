@@ -826,4 +826,7 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get learnIntro =>
       'Aprenda no seu ritmo. Toque em qualquer tópico para expandi-lo.';
+
+  @override
+  String get learnFaqIntro => 'Toque em uma pergunta para ver a resposta.';
 }

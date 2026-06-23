@@ -32,6 +32,30 @@ List<TopicContent> methodTopics(String lang) {
   }
 }
 
+/// A single FAQ question/answer pair.
+class FaqEntry {
+  final String question;
+  final String answer;
+  const FaqEntry({required this.question, required this.answer});
+}
+
+/// A labelled group of FAQ entries.
+class FaqSection {
+  final String label;
+  final List<FaqEntry> items;
+  const FaqSection({required this.label, required this.items});
+}
+
+/// FAQ-tab sections for the given language code (falls back to English).
+List<FaqSection> faqSections(String lang) {
+  switch (lang) {
+    case 'de':
+      return _faqSectionsDe;
+    default:
+      return _faqSectionsEn;
+  }
+}
+
 const _methodTopicsEn = <TopicContent>[
   TopicContent(
     icon: Icons.auto_stories_outlined,
@@ -164,6 +188,253 @@ const _methodTopicsEn = <TopicContent>[
     reference: 'Frank-Herrmann P et al. (2007). Human Reproduction. '
         '\nManhart MD et al. (2013). Osteopathic Family Physician, 5(1).',
   ),
+];
+
+const _faqSectionsEn = <FaqSection>[
+  FaqSection(label: 'Getting Started', items: [
+    FaqEntry(
+      question: 'How do I start using the method?',
+      answer: 'Record your basal body temperature every morning '
+          'before getting up, and observe your cervical mucus '
+          'throughout the day. Log both daily. For the first few '
+          'cycles, focus on learning your pattern.\n\n'
+          'Reading "Taking Charge of Your Fertility" (Weschler) '
+          'or taking a certified course is strongly recommended '
+          'before relying on the method.',
+    ),
+    FaqEntry(
+      question: 'When and how do I measure temperature?',
+      answer: 'Measure immediately after waking, before getting '
+          'up or talking. Use a basal thermometer with 0.01°C '
+          'precision. Same time each day (±30 min).\n\n'
+          'You can measure orally (5 min under tongue), vaginally '
+          '(5 min), or rectally (3 min). Pick one method and '
+          'stick with it within a cycle.',
+    ),
+    FaqEntry(
+      question: 'What if I slept badly or drank alcohol?',
+      answer: 'Mark the temperature as "excluded." Disturbed '
+          'values shouldn\'t be used for evaluation. Common '
+          'disturbances: alcohol, illness, poor sleep (<5 hrs), '
+          'late/early waking, travel, stress.\n\n'
+          'Better to exclude a questionable value than to get '
+          'a false evaluation.',
+    ),
+  ]),
+  FaqSection(label: 'Observing & Recording', items: [
+    FaqEntry(
+      question: 'How do I observe cervical mucus?',
+      answer: 'Check each time you use the bathroom:\n\n'
+          '1. Sensation — does it feel dry, moist, wet, or '
+          'slippery?\n'
+          '2. Appearance — check toilet paper for nothing, '
+          'something cloudy, or something clear/stretchy.\n\n'
+          'Record the highest quality you observed that day. '
+          'See the "Mucus Atlas" tab for a visual guide.',
+    ),
+    FaqEntry(
+      question: 'What is the "Peak Day"?',
+      answer: 'The last day of best-quality mucus before it '
+          'drops to a lower quality. You identify it '
+          'retrospectively — when today is less fertile than '
+          'yesterday, then yesterday was the Peak Day.\n\n'
+          'It closely correlates with ovulation (±1–2 days).',
+    ),
+    FaqEntry(
+      question: 'What does the 3-over-6 rule mean?',
+      answer: '1. Find 6 low temps before the suspected shift\n'
+          '2. Coverline = highest of those 6\n'
+          '3. 3 consecutive temps must be above the coverline\n'
+          '4. The 3rd must be ≥0.2°C above the coverline\n\n'
+          'If condition 4 isn\'t met, wait for a 4th high temp.',
+    ),
+  ]),
+  FaqSection(label: 'Safety & Rules', items: [
+    FaqEntry(
+      question: 'Are the first days really infertile?',
+      answer: 'For beginners (<12 cycles), the first 5 days are '
+          'infertile — provided there is no fertile mucus. After '
+          '12+ cycles, the app uses your history for a personalized '
+          'calculation.\n\n'
+          'Any fertile mucus observation immediately overrides '
+          'the calendar rule — even on day 3.',
+    ),
+    FaqEntry(
+      question: 'Can I use STM with irregular cycles?',
+      answer: 'Yes. STM observes real signals rather than '
+          'predicting, so it works well with irregular cycles. '
+          'The pre-ovulatory safe days may be fewer, but the '
+          'post-ovulatory phase remains reliable.\n\n'
+          'Very irregular cycles may warrant medical investigation.',
+    ),
+    FaqEntry(
+      question: 'What about breastfeeding or postpartum?',
+      answer: 'STM can be adapted, but the rules are more '
+          'complex. Work with a trained counselor during this '
+          'time. Standard app calculations assume established '
+          'cycling.',
+    ),
+    FaqEntry(
+      question: 'How is STM different from the calendar method?',
+      answer: 'The calendar method predicts from past averages '
+          '(Pearl Index ~15–25). STM observes actual biological '
+          'signals in the current cycle (Pearl Index 0.4).\n\n'
+          'This app uses calendar calculations only as a '
+          'secondary tool — mucus always takes priority.',
+    ),
+  ]),
+  FaqSection(label: 'Using the App', items: [
+    FaqEntry(
+      question: 'What does "avoiding" vs "achieving" mode mean?',
+      answer: 'It changes how labels appear:\n\n'
+          '• Avoiding: Conservative labels. Pre-ovulatory days '
+          'say "potentially fertile" since ovulation isn\'t '
+          'confirmed yet.\n\n'
+          '• Achieving: Standard STM labels. The fertile window '
+          'is highlighted for timing.\n\n'
+          'The underlying evaluation is identical.',
+    ),
+    FaqEntry(
+      question: 'Should I trust the app blindly?',
+      answer: 'No. This is a charting tool, not a medical device. '
+          'You should learn the rules and verify the evaluation '
+          'makes sense. Use manual overrides (coverline, Peak Day) '
+          'if needed.\n\n'
+          'Tap the ℹ icon next to any label to see which rule '
+          'was applied and why.',
+    ),
+  ]),
+];
+
+const _faqSectionsDe = <FaqSection>[
+  FaqSection(label: 'Erste Schritte', items: [
+    FaqEntry(
+      question: 'Wie fange ich mit der Methode an?',
+      answer: 'Miss jeden Morgen vor dem Aufstehen deine '
+          'Basaltemperatur und beobachte tagsüber deinen '
+          'Zervixschleim. Trage beides täglich ein. Konzentriere '
+          'dich in den ersten Zyklen darauf, dein Muster '
+          'kennenzulernen.\n\n'
+          'Es wird dringend empfohlen, „Natürlich und sicher" '
+          '(AG NFP) oder „Taking Charge of Your Fertility" '
+          '(Weschler) zu lesen oder einen zertifizierten Kurs zu '
+          'besuchen, bevor du dich auf die Methode verlässt.',
+    ),
+    FaqEntry(
+      question: 'Wann und wie messe ich die Temperatur?',
+      answer: 'Miss direkt nach dem Aufwachen, bevor du aufstehst '
+          'oder sprichst. Verwende ein Basalthermometer mit '
+          '0,01 °C Genauigkeit. Jeden Tag zur selben Zeit '
+          '(±30 Min.).\n\n'
+          'Du kannst oral (5 Min. unter der Zunge), vaginal '
+          '(5 Min.) oder rektal (3 Min.) messen. Wähle eine '
+          'Methode und bleibe innerhalb eines Zyklus dabei.',
+    ),
+    FaqEntry(
+      question: 'Was, wenn ich schlecht geschlafen oder Alkohol '
+          'getrunken habe?',
+      answer: 'Markiere die Temperatur als „ausgeschlossen". '
+          'Gestörte Werte sollten nicht zur Auswertung verwendet '
+          'werden. Häufige Störungen: Alkohol, Krankheit, '
+          'schlechter Schlaf (< 5 Std.), spätes/frühes Aufwachen, '
+          'Reisen, Stress.\n\n'
+          'Besser einen fraglichen Wert ausschließen als eine '
+          'falsche Auswertung erhalten.',
+    ),
+  ]),
+  FaqSection(label: 'Beobachten & Aufzeichnen', items: [
+    FaqEntry(
+      question: 'Wie beobachte ich den Zervixschleim?',
+      answer: 'Prüfe jedes Mal, wenn du auf der Toilette bist:\n\n'
+          '1. Empfinden – fühlt es sich trocken, feucht, nass '
+          'oder glitschig an?\n'
+          '2. Aussehen – prüfe das Toilettenpapier auf nichts, '
+          'etwas Trübes oder etwas Klares/Spinnbares.\n\n'
+          'Notiere die höchste Qualität, die du an dem Tag '
+          'beobachtet hast. Im Tab „Schleim-Atlas" findest du '
+          'einen visuellen Leitfaden.',
+    ),
+    FaqEntry(
+      question: 'Was ist der „Höhepunkt"?',
+      answer: 'Der letzte Tag mit bester Schleimqualität, bevor '
+          'sie auf eine geringere Qualität abfällt. Du bestimmst '
+          'ihn rückblickend – wenn heute weniger fruchtbar ist '
+          'als gestern, dann war gestern der Höhepunkt.\n\n'
+          'Er korreliert eng mit dem Eisprung (±1–2 Tage).',
+    ),
+    FaqEntry(
+      question: 'Was bedeutet die 3-über-6-Regel?',
+      answer: '1. Finde die 6 niedrigen Werte vor dem vermuteten '
+          'Anstieg\n'
+          '2. Hilfslinie = höchster dieser 6 Werte\n'
+          '3. 3 aufeinanderfolgende Werte müssen über der '
+          'Hilfslinie liegen\n'
+          '4. Der 3. Wert muss ≥ 0,2 °C über der Hilfslinie '
+          'liegen\n\n'
+          'Wird Bedingung 4 nicht erfüllt, warte auf einen '
+          '4. hohen Wert.',
+    ),
+  ]),
+  FaqSection(label: 'Sicherheit & Regeln', items: [
+    FaqEntry(
+      question: 'Sind die ersten Tage wirklich unfruchtbar?',
+      answer: 'Für Anfängerinnen (< 12 Zyklen) sind die ersten '
+          '5 Tage unfruchtbar – vorausgesetzt, es zeigt sich kein '
+          'fruchtbarer Schleim. Nach 12+ Zyklen nutzt die App '
+          'deinen Verlauf für eine personalisierte Berechnung.\n\n'
+          'Jede Beobachtung von fruchtbarem Schleim hebt die '
+          'Kalenderregel sofort auf – auch an Tag 3.',
+    ),
+    FaqEntry(
+      question: 'Kann ich die STM bei unregelmäßigen Zyklen nutzen?',
+      answer: 'Ja. Die STM beobachtet echte Signale, statt '
+          'vorherzusagen, daher funktioniert sie auch bei '
+          'unregelmäßigen Zyklen gut. Die unfruchtbaren Tage vor '
+          'dem Eisprung können weniger sein, aber die Phase nach '
+          'dem Eisprung bleibt zuverlässig.\n\n'
+          'Sehr unregelmäßige Zyklen können eine ärztliche '
+          'Abklärung rechtfertigen.',
+    ),
+    FaqEntry(
+      question: 'Was ist mit Stillzeit oder Wochenbett?',
+      answer: 'Die STM lässt sich anpassen, aber die Regeln sind '
+          'komplexer. Arbeite in dieser Zeit mit einer geschulten '
+          'Beraterin. Die Standard-Berechnungen der App setzen '
+          'einen eingependelten Zyklus voraus.',
+    ),
+    FaqEntry(
+      question: 'Wie unterscheidet sich die STM von der '
+          'Kalendermethode?',
+      answer: 'Die Kalendermethode sagt aus vergangenen '
+          'Durchschnittswerten vorher (Pearl-Index ~15–25). Die '
+          'STM beobachtet die tatsächlichen biologischen Signale '
+          'im aktuellen Zyklus (Pearl-Index 0,4).\n\n'
+          'Diese App nutzt Kalenderberechnungen nur als '
+          'sekundäres Hilfsmittel – Schleim hat immer Vorrang.',
+    ),
+  ]),
+  FaqSection(label: 'Die App nutzen', items: [
+    FaqEntry(
+      question: 'Was bedeutet der Modus „Verhüten" vs. „Erfüllen"?',
+      answer: 'Er ändert, wie die Bezeichnungen erscheinen:\n\n'
+          '• Verhüten: Vorsichtige Bezeichnungen. Tage vor dem '
+          'Eisprung heißen „evtl. fruchtbar", da der Eisprung '
+          'noch nicht bestätigt ist.\n\n'
+          '• Erfüllen: Übliche STM-Bezeichnungen. Das fruchtbare '
+          'Fenster wird zur zeitlichen Planung hervorgehoben.\n\n'
+          'Die zugrundeliegende Auswertung ist identisch.',
+    ),
+    FaqEntry(
+      question: 'Sollte ich der App blind vertrauen?',
+      answer: 'Nein. Dies ist ein Charting-Werkzeug, kein '
+          'Medizinprodukt. Du solltest die Regeln lernen und '
+          'prüfen, ob die Auswertung sinnvoll ist. Nutze bei '
+          'Bedarf die manuellen Überschreibungen (Hilfslinie, '
+          'Höhepunkt).\n\n'
+          'Tippe auf das ℹ-Symbol neben einer Bezeichnung, um zu '
+          'sehen, welche Regel angewendet wurde und warum.',
+    ),
+  ]),
 ];
 
 const _methodTopicsDe = <TopicContent>[

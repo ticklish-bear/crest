@@ -274,5 +274,6 @@
   "learnTabMethod": "Die Methode",
   "learnTabFaq": "FAQ",
   "learnTabAtlas": "Schleim-Atlas",
-  "learnIntro": "Lerne in deinem Tempo. Tippe ein Thema an, um es aufzuklappen."
+  "learnIntro": "Lerne in deinem Tempo. Tippe ein Thema an, um es aufzuklappen.",
+  "learnFaqIntro": "Tippe eine Frage an, um die Antwort zu sehen."
 }

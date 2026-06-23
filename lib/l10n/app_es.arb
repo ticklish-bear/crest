@@ -274,5 +274,6 @@
   "learnTabMethod": "El método",
   "learnTabFaq": "Preguntas",
   "learnTabAtlas": "Atlas del moco",
-  "learnIntro": "Aprende a tu ritmo. Toca cualquier tema para ampliarlo."
+  "learnIntro": "Aprende a tu ritmo. Toca cualquier tema para ampliarlo.",
+  "learnFaqIntro": "Toca una pregunta para ver la respuesta."
 }

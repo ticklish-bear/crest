@@ -827,4 +827,7 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get learnIntro =>
       'Apprenez à votre rythme. Touchez un sujet pour le développer.';
+
+  @override
+  String get learnFaqIntro => 'Touchez une question pour voir la réponse.';
 }
