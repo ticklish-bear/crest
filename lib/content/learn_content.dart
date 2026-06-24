@@ -122,6 +122,8 @@ AtlasContent atlasContent(String lang) {
   switch (lang) {
     case 'de':
       return _atlasDe;
+    case 'es':
+      return _atlasEs;
     default:
       return _atlasEn;
   }
@@ -1309,3 +1311,193 @@ const _faqSectionsEs = <FaqSection>[
     ),
   ]),
 ];
+
+const _atlasEs = AtlasContent(
+  categories: [
+    MucusCategoryText(
+      category: 'Seco',
+      fertility: 'No fértil',
+      sensation: 'Seco, áspero, posiblemente con picor o ligera molestia. '
+          'La entrada vaginal puede sentirse como papel de lija al '
+          'limpiarte.',
+      appearance: 'Nada visible en el papel higiénico ni en la ropa '
+          'interior. El papel queda completamente limpio y seco al '
+          'limpiarte. No hay brillo ni residuo alguno.',
+      fingerTest: 'Nada que probar: tus dedos quedan completamente secos, '
+          'sin residuo.',
+      details: 'Esto se observa normalmente en los días justo después de '
+          'que termina la menstruación y de nuevo tras la ovulación, '
+          'durante toda la fase lútea. Los niveles de estrógeno están en '
+          'su punto más bajo, así que el cuello uterino produce poca o '
+          'ninguna secreción. En la clasificación del método, los días '
+          'secos de la fase preovulatoria (antes de que aparezca moco) '
+          'aún pueden considerarse infértiles según las reglas del '
+          'calendario.\n\n'
+          'Nota: Algunas mujeres rara vez se sienten completamente '
+          '«secas»; si tu estado base es más neutro, ese es tu patrón '
+          'personal. Lo importante es reconocer cuándo CAMBIA.',
+    ),
+    MucusCategoryText(
+      category: 'Nada sentido, nada visto',
+      fertility: 'No fértil',
+      sensation: 'Ni seco ni húmedo: una sensación neutra. No notas nada '
+          'en particular, sin molestia, sin humedad.',
+      appearance: 'Sin moco visible en el papel higiénico. Sin manchas en '
+          'la ropa interior. El papel puede tener un brillo muy leve, '
+          'pero nada que puedas recoger o examinar.',
+      fingerTest: 'Nada que recoger o probar entre los dedos. La zona se '
+          'siente neutra al tacto.',
+      details: 'Es una categoría de transición entre «seco» y «húmedo». '
+          'Algunas mujeres la experimentan como su estado base en lugar '
+          'de la sequedad total, sobre todo quienes tienen de forma '
+          'natural algo más de humedad. Esto es perfectamente normal.\n\n'
+          'La clave en esta categoría es prestar mucha atención a si pasa '
+          'a «húmedo» o «mojado»: ese cambio, aunque sea sutil, indica un '
+          'aumento de estrógeno y la posible apertura de la ventana '
+          'fértil.',
+    ),
+    MucusCategoryText(
+      category: 'Húmedo / Pegajoso',
+      fertility: 'Posiblemente fértil',
+      sensation: 'Sensación ligeramente húmeda en la entrada vaginal. '
+          'Notas que hay algo, pero no se siente resbaladizo ni '
+          'lubricante.',
+      appearance: 'Espeso, blanco, turbio o amarillento. Puede verse '
+          'pastoso, grumoso o gomoso. Se mantiene en un grumo. Puede '
+          'parecerse a cola blanca escolar o a crema de manos espesa que '
+          'ha empezado a secarse.',
+      fingerTest: 'Se rompe enseguida al estirarlo, o se estira menos de '
+          '1 cm antes de romperse. Se siente pegajoso o grumoso entre el '
+          'pulgar y el índice, como pasta seca.',
+      details: 'El cuello uterino empieza a responder al aumento de '
+          'estrógeno. Este moco permite una supervivencia limitada de los '
+          'espermatozoides (horas, no días), pero indica que el cuerpo '
+          'está pasando hacia la fertilidad.\n\n'
+          'En la clasificación del método, esta es la zona límite. Si '
+          'usas el método para evitar el embarazo, la primera aparición '
+          'de este moco tras días secos debe tratarse como el inicio de '
+          'la ventana fértil, aunque el cálculo del calendario diga que '
+          'aún estás en la fase infértil. El moco siempre tiene prioridad '
+          'sobre las reglas del calendario.\n\n'
+          'Bajo el microscopio, este tipo de moco forma una estructura en '
+          'malla que bloquea parcialmente el paso de los espermatozoides.',
+    ),
+    MucusCategoryText(
+      category: 'Mojado / Cremoso',
+      fertility: 'Fértil',
+      sensation: 'Sensación mojada, suave o resbaladiza. Puedes notar '
+          'humedad al caminar o sentarte. Hay una clara sensación de '
+          'lubricación, aunque no tan intensa como en la fase de clara de '
+          'huevo.',
+      appearance: 'De blanco a ligeramente turbio, con una consistencia '
+          'cremosa, tipo loción. Más fluido que la fase pegajosa. Puede '
+          'dejar manchas húmedas notables en la ropa interior. Puede '
+          'parecerse a loción corporal, yogur o crema de manos ligera.',
+      fingerTest: 'Se estira 1–2 cm antes de romperse. Se siente suave y '
+          'cremoso entre los dedos, como loción de manos o hidratante. '
+          'Aún no forma los hilos elásticos del moco de clara de huevo.',
+      details: 'Los niveles de estrógeno están ahora bastante elevados, '
+          'lo que indica que la ovulación se acerca (normalmente en pocos '
+          'días). El moco se vuelve hospitalario para los espermatozoides: '
+          'aporta nutrientes, un pH alcalino que contrarresta la acidez '
+          'vaginal y canales que facilitan su transporte hacia el '
+          'óvulo.\n\n'
+          'Los espermatozoides pueden sobrevivir 3–5 días en este tipo de '
+          'moco, por lo que la ventana fértil se extiende bastante antes '
+          'de la propia ovulación. Esto marca la fase claramente fértil '
+          'del ciclo.\n\n'
+          'Bajo el microscopio, este moco muestra una estructura más '
+          'abierta, con canales, en comparación con la malla del moco '
+          'pegajoso, guiando activamente a los espermatozoides hacia '
+          'arriba.',
+    ),
+    MucusCategoryText(
+      category: 'Clara de huevo / Resbaladizo',
+      fertility: 'Muy fértil',
+      sensation: 'Muy resbaladizo, lubricante, como jabón, aceite o '
+          'deslizarse sobre una superficie mojada. Puedes notarlo al '
+          'caminar, al sentarte o incluso sin limpiarte. Algunas lo '
+          'describen como una sensación de «chorro».',
+      appearance: 'Claro, transparente o con leves vetas blancas. Muy '
+          'fluido, vidrioso y elástico. Se parece a la clara de huevo '
+          'cruda: a menudo se ven hilos largos y finos en el papel '
+          'higiénico. Puede ser acuoso-claro, sin turbidez alguna.',
+      fingerTest: 'Se estira 3–10+ cm sin romperse, formando hilos finos, '
+          'elásticos y brillantes entre el pulgar y el índice. Cuanto más '
+          'largo y fino el hilo, más fértil. Se siente extremadamente '
+          'resbaladizo: los dedos casi se deslizan uno sobre otro.',
+      details: 'Este es el moco más fértil, e indica niveles máximos de '
+          'estrógeno y que la ovulación es inminente o está ocurriendo '
+          'ahora mismo. Los espermatozoides pueden sobrevivir hasta 5 '
+          'días en este moco, y este facilita activamente su transporte '
+          'hacia el óvulo.\n\n'
+          'El ÚLTIMO día en que observas este moco de máxima calidad es '
+          'tu «día cúspide», uno de los dos marcadores clave del método. '
+          'Solo puedes identificar el día cúspide de forma retrospectiva: '
+          'cuando notas que el moco de hoy es más seco o menos elástico '
+          'que el de ayer, entonces ayer fue el día cúspide.\n\n'
+          'No todas producen grandes cantidades; algunas mujeres solo ven '
+          'una pequeña cantidad de moco elástico. La calidad (elasticidad, '
+          'claridad, resbaladicidad) importa más que la cantidad. Incluso '
+          'una pequeña cantidad de auténtico moco de clara de huevo es un '
+          'fuerte signo de fertilidad.\n\n'
+          'Bajo el microscopio, este moco muestra canales paralelos muy '
+          'abiertos, esencialmente una autopista para los espermatozoides. '
+          'Al secarse en un portaobjetos, también muestra un patrón '
+          'característico de «helecho».',
+    ),
+  ],
+  progressionTitle: 'Progresión típica',
+  progression: [
+    ProgressionRowText(phase: 'Tras la regla', mucus: 'Seco'),
+    ProgressionRowText(phase: 'Folicular temprana', mucus: 'Pegajoso/turbio'),
+    ProgressionRowText(phase: 'Cerca de la ovulación', mucus: 'Húmedo/cremoso'),
+    ProgressionRowText(phase: 'Máxima fertilidad', mucus: 'Clara de huevo'),
+    ProgressionRowText(phase: 'Tras la ovulación', mucus: 'De nuevo seco'),
+  ],
+  progressionCaption: 'El cambio brusco de clara de huevo a seco/pegajoso '
+      'marca el día cúspide (identificado al día siguiente).',
+  goodToKnowTitle: 'Bueno saber',
+  goodToKnowBody: '• Céntrate en el cambio de patrón, no en coincidir '
+      'exactamente con una descripción de manual.\n'
+      '• El fluido de excitación es distinto: acuoso, desaparece rápido, '
+      'no se estira.\n'
+      '• El semen puede enmascarar las observaciones durante 12–24 '
+      'horas.\n'
+      '• Algunos medicamentos pueden reducir la producción de moco.',
+  samplingTitle: 'Cómo observar y tomar una muestra',
+  samplingIntro: 'Hay tres formas de comprobar tu moco cervical. Usa la '
+      'que te resulte más cómoda; lo importante es que lo hagas de forma '
+      'constante.',
+  samplingMethods: [
+    SamplingMethodText(
+      title: 'Método del papel higiénico',
+      text: 'Antes de orinar, límpiate la entrada vaginal de delante '
+          'hacia atrás con papel higiénico blanco y sin perfume. Mira el '
+          'papel: ¿hay algo en él? Anota el color, la consistencia y cómo '
+          'se siente al limpiarte (¿seco, suave, resbaladizo?).',
+    ),
+    SamplingMethodText(
+      title: 'Método del dedo',
+      text: 'Con las manos limpias, introduce el dedo índice o medio en '
+          'la vagina (basta con unos 2–3 cm). Recorre suavemente '
+          'alrededor del cuello uterino. Saca el dedo y examina lo que '
+          'hay en él. Luego haz la prueba con los dedos: presiona el moco '
+          'entre el pulgar y el índice y sepáralos despacio. Anota cuánto '
+          'se estira antes de romperse.',
+    ),
+    SamplingMethodText(
+      title: 'Revisión de la ropa interior',
+      text: 'Mira tu ropa interior a lo largo del día. El moco cervical '
+          'suele dejar marcas visibles; anota si la mancha está seca, '
+          'cremosa, mojada o muestra un residuo claro y elástico.',
+    ),
+  ],
+  samplingTip: 'Registra siempre la calidad MÁS ALTA que observaste '
+      'durante el día. Si viste moco pegajoso por la mañana pero clara de '
+      'huevo por la tarde, registra clara de huevo.\n\n'
+      'Comprueba varias veces al día: el moco puede cambiar a lo largo '
+      'del día. Presta especial atención a la sensación: el tacto '
+      'resbaladizo/lubricante suele ser el indicador más fiable, aun '
+      'cuando no veas mucho.',
+);
