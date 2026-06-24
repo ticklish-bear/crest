@@ -2,7 +2,7 @@ name: ember
 description: "Ember — a free, offline charting app for the symptothermal method. No account, no ads, no predictions."
 publish_to: 'none'
 
-version: 0.1.0+1
+version: 0.2.0+2
 
 environment:
   sdk: ^3.11.4
