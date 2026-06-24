@@ -27,6 +27,8 @@ List<TopicContent> methodTopics(String lang) {
   switch (lang) {
     case 'de':
       return _methodTopicsDe;
+    case 'es':
+      return _methodTopicsEs;
     default:
       return _methodTopicsEn;
   }
@@ -51,6 +53,8 @@ List<FaqSection> faqSections(String lang) {
   switch (lang) {
     case 'de':
       return _faqSectionsDe;
+    case 'es':
+      return _faqSectionsEs;
     default:
       return _faqSectionsEn;
   }
@@ -1050,3 +1054,258 @@ const _atlasDe = AtlasContent(
       'glitschige/gleitfähige Gefühl ist oft der zuverlässigste '
       'Indikator, auch wenn du wenig sehen kannst.',
 );
+
+const _methodTopicsEs = <TopicContent>[
+  TopicContent(
+    icon: Icons.auto_stories_outlined,
+    title: '¿Qué es el método sintotérmico?',
+    summary: 'Una forma científicamente validada de identificar los días '
+        'fértiles e infértiles usando dos signos corporales.',
+    body: 'El método sintotérmico usa dos marcadores biológicos '
+        'independientes —la temperatura basal corporal y el moco '
+        'cervical— para identificar las fases fértil e infértil de cada '
+        'ciclo menstrual.\n\n'
+        'A diferencia de los métodos basados en el calendario, que '
+        'predicen a partir de promedios, el método observa las señales '
+        'reales de tu cuerpo en cada ciclo. Un amplio estudio '
+        '(Frank-Herrmann et al., 2007) halló que menos de 1 de cada 200 '
+        'mujeres al año quedaba embarazada si seguía las reglas '
+        'correctamente.',
+    reference: 'Frank-Herrmann P et al. (2007). '
+        'Human Reproduction, 22(5), 1310–1319.',
+  ),
+  TopicContent(
+    icon: Icons.loop,
+    title: 'Tu ciclo menstrual',
+    summary: 'Cómo las hormonas impulsan las cuatro fases de tu ciclo.',
+    body: 'Tu ciclo está controlado por un circuito de retroalimentación '
+        'entre el cerebro y los ovarios. Un ciclo típico dura 24–35 días, '
+        'pero la variación es normal.\n\n'
+        'Las cuatro fases:\n\n'
+        '1. Menstruación (~días 1–5)\n'
+        'El revestimiento uterino se desprende. Las hormonas están en su '
+        'nivel más bajo.\n\n'
+        '2. Fase folicular (duración variable)\n'
+        'Los folículos maduran en los ovarios. El aumento de estrógeno '
+        'estimula el moco fértil y engrosa el revestimiento uterino. Esta '
+        'fase varía en duración: por eso los ciclos no siempre son '
+        'iguales.\n\n'
+        '3. Ovulación (~24 horas)\n'
+        'Un pico de LH desencadena la liberación de un óvulo maduro. El '
+        'óvulo sobrevive 12–24 horas, pero los espermatozoides pueden '
+        'vivir hasta 5 días en el moco fértil.\n\n'
+        '4. Fase lútea (~10–16 días)\n'
+        'La progesterona aumenta, elevando tu temperatura entre 0,2 y '
+        '0,5 °C y secando el moco. Esta fase es bastante constante de un '
+        'ciclo a otro.',
+    reference: 'Reed BG, Carr BR (2018). '
+        '"The Normal Menstrual Cycle and the Control of Ovulation." '
+        'In: Endotext. PMID: 25905282.',
+  ),
+  TopicContent(
+    icon: Icons.thermostat_outlined,
+    title: 'Signo 1: Temperatura',
+    summary: 'Cómo la regla «3 sobre 6» confirma la ovulación.',
+    body: 'Tu temperatura basal corporal (TBC) es tu temperatura en '
+        'reposo, medida justo al despertar. Tras la ovulación, la '
+        'progesterona la eleva al menos 0,2 °C.\n\n'
+        'La regla 3 sobre 6:\n'
+        '① Identifica las 6 temperaturas bajas antes del posible cambio\n'
+        '② La línea base = la más alta de esas 6\n'
+        '③ 3 temperaturas consecutivas deben estar por encima de la '
+        'línea base\n'
+        '④ La 3.ª debe estar ≥ 0,2 °C por encima de la línea base\n\n'
+        'Si no se cumple ④, espera una 4.ª temperatura alta (que no '
+        'necesita el margen de 0,2 °C).\n\n'
+        'Consejo: Mide a la misma hora cada día (±30 min). El alcohol, la '
+        'enfermedad o dormir mal pueden alterar las lecturas; márcalas '
+        'como «excluidas».',
+    reference: 'Colombo B, Masarotto G (2000). '
+        'Demographic Research, 3(5).',
+  ),
+  TopicContent(
+    icon: Icons.water_drop_outlined,
+    title: 'Signo 2: Moco cervical',
+    summary: 'Cómo los cambios del moco revelan tu ventana fértil.',
+    body: 'El moco cervical cambia a lo largo del ciclo en respuesta a '
+        'los niveles hormonales. Es el signo principal que abre la '
+        'ventana fértil.\n\n'
+        'Observa tanto la sensación (lo que sientes) como el aspecto (lo '
+        'que ves). Registra la mejor calidad del día.\n\n'
+        'Progresión típica:\n'
+        'Seco → pegajoso/turbio → húmedo/cremoso → clara de huevo/'
+        'resbaladizo → de nuevo seco tras la ovulación\n\n'
+        'El «día cúspide» es el último día con el moco de mejor calidad '
+        'antes de que disminuya. Se identifica de forma retrospectiva.\n\n'
+        'Consulta la pestaña «Atlas del moco» para una guía visual de '
+        'cada categoría.',
+    reference: 'Bigelow JL et al. (2004). '
+        'Human Reproduction, 19(4), 889–892.',
+  ),
+  TopicContent(
+    icon: Icons.rule_outlined,
+    title: 'Las reglas: fase preovulatoria',
+    summary: 'Qué días al inicio del ciclo son infértiles.',
+    body: 'Las reglas basadas en el calendario determinan cuántos días '
+        'iniciales pueden considerarse infértiles. Siempre se aplica la '
+        'más conservadora (la más baja):\n\n'
+        '• Regla de los 5 días (principiantes, <12 ciclos): los días 1–5 '
+        'son infértiles.\n\n'
+        '• Regla de los 6 días de Rötzer: días 1–6, pero solo si TODOS '
+        'los ciclos registrados fueron ≥ 26 días.\n\n'
+        '• Regla menos-20 (12+ ciclos): ciclo más corto registrado menos '
+        '20 = último día infértil.\n\n'
+        '• Regla menos-8 (12+ ciclos): día más temprano de subida de '
+        'temperatura menos 8.\n\n'
+        'Clave: cualquier moco cervical fértil anula de inmediato estos '
+        'cálculos. El moco siempre tiene prioridad sobre las reglas del '
+        'calendario.',
+  ),
+  TopicContent(
+    icon: Icons.check_circle_outline,
+    title: 'Las reglas: fase posovulatoria',
+    summary: 'Cómo la «doble comprobación» confirma la infertilidad.',
+    body: 'La infertilidad posovulatoria comienza en el MÁS TARDÍO de:\n\n'
+        '• La tarde del 3.er día tras el día cúspide\n'
+        '• La tarde de la 3.ª temperatura alta consecutiva\n\n'
+        'Deben cumplirse ambas condiciones: este es el principio de '
+        '«doble comprobación» que hace tan fiable al método. Si la '
+        'temperatura se confirma el día 17 pero el día cúspide + 3 es el '
+        'día 19, la fase infértil empieza el día 19.\n\n'
+        'Esta es la fase más fiable de todo el ciclo.',
+  ),
+  TopicContent(
+    icon: Icons.verified_outlined,
+    title: '¿Qué fiabilidad tiene el método?',
+    summary: '99,6 % de eficacia con uso correcto.',
+    body: 'Eficacia con uso del método: 99,6 %\n'
+        'Eficacia con uso típico: 98,2 %\n'
+        'Índice de Pearl (uso correcto): 0,4\n\n'
+        'Para comparar, la píldora tiene un índice de Pearl de uso típico '
+        'de 7–9, y los condones de unos 13–18.\n\n'
+        'La clave es una observación correcta y un registro honesto. Esta '
+        'app te ayuda, pero ERES TÚ quien interpreta y aplica las reglas. '
+        'Considera hacer un curso certificado, sobre todo al empezar.',
+    reference: 'Frank-Herrmann P et al. (2007). Human Reproduction. '
+        '\nManhart MD et al. (2013). Osteopathic Family Physician, 5(1).',
+  ),
+];
+
+const _faqSectionsEs = <FaqSection>[
+  FaqSection(label: 'Primeros pasos', items: [
+    FaqEntry(
+      question: '¿Cómo empiezo a usar el método?',
+      answer: 'Registra tu temperatura basal cada mañana antes de '
+          'levantarte y observa tu moco cervical a lo largo del día. '
+          'Anota ambos a diario. En los primeros ciclos, céntrate en '
+          'aprender tu patrón.\n\n'
+          'Se recomienda mucho leer «Taking Charge of Your Fertility» '
+          '(Weschler) o hacer un curso certificado antes de confiar en '
+          'el método.',
+    ),
+    FaqEntry(
+      question: '¿Cuándo y cómo mido la temperatura?',
+      answer: 'Mide nada más despertar, antes de levantarte o hablar. '
+          'Usa un termómetro basal con precisión de 0,01 °C. A la misma '
+          'hora cada día (±30 min).\n\n'
+          'Puedes medir por vía oral (5 min bajo la lengua), vaginal '
+          '(5 min) o rectal (3 min). Elige un método y mantenlo durante '
+          'el ciclo.',
+    ),
+    FaqEntry(
+      question: '¿Y si dormí mal o bebí alcohol?',
+      answer: 'Marca la temperatura como «excluida». Los valores '
+          'alterados no deben usarse para la evaluación. Alteraciones '
+          'comunes: alcohol, enfermedad, dormir mal (<5 h), despertar '
+          'tarde/temprano, viajes, estrés.\n\n'
+          'Mejor excluir un valor dudoso que obtener una evaluación '
+          'falsa.',
+    ),
+  ]),
+  FaqSection(label: 'Observar y registrar', items: [
+    FaqEntry(
+      question: '¿Cómo observo el moco cervical?',
+      answer: 'Comprueba cada vez que vayas al baño:\n\n'
+          '1. Sensación: ¿se siente seco, húmedo, mojado o '
+          'resbaladizo?\n'
+          '2. Aspecto: revisa el papel higiénico en busca de nada, algo '
+          'turbio o algo claro/elástico.\n\n'
+          'Registra la mejor calidad que observaste ese día. Consulta la '
+          'pestaña «Atlas del moco» para una guía visual.',
+    ),
+    FaqEntry(
+      question: '¿Qué es el «día cúspide»?',
+      answer: 'El último día con el moco de mejor calidad antes de que '
+          'baje a una calidad menor. Se identifica de forma '
+          'retrospectiva: cuando hoy es menos fértil que ayer, entonces '
+          'ayer fue el día cúspide.\n\n'
+          'Se correlaciona estrechamente con la ovulación (±1–2 días).',
+    ),
+    FaqEntry(
+      question: '¿Qué significa la regla 3 sobre 6?',
+      answer: '1. Encuentra 6 temperaturas bajas antes del posible '
+          'cambio\n'
+          '2. Línea base = la más alta de esas 6\n'
+          '3. 3 temperaturas consecutivas deben superar la línea base\n'
+          '4. La 3.ª debe estar ≥ 0,2 °C por encima\n\n'
+          'Si no se cumple la condición 4, espera una 4.ª temperatura '
+          'alta.',
+    ),
+  ]),
+  FaqSection(label: 'Seguridad y reglas', items: [
+    FaqEntry(
+      question: '¿De verdad son infértiles los primeros días?',
+      answer: 'Para principiantes (<12 ciclos), los primeros 5 días son '
+          'infértiles, siempre que no haya moco fértil. Tras 12+ ciclos, '
+          'la app usa tu historial para un cálculo personalizado.\n\n'
+          'Cualquier observación de moco fértil anula de inmediato la '
+          'regla del calendario, incluso el día 3.',
+    ),
+    FaqEntry(
+      question: '¿Puedo usar el método con ciclos irregulares?',
+      answer: 'Sí. El método observa señales reales en lugar de predecir, '
+          'así que funciona bien con ciclos irregulares. Los días seguros '
+          'preovulatorios pueden ser menos, pero la fase posovulatoria '
+          'sigue siendo fiable.\n\n'
+          'Los ciclos muy irregulares pueden requerir una evaluación '
+          'médica.',
+    ),
+    FaqEntry(
+      question: '¿Y durante la lactancia o el posparto?',
+      answer: 'El método puede adaptarse, pero las reglas son más '
+          'complejas. Trabaja con una instructora formada durante esta '
+          'etapa. Los cálculos estándar de la app suponen ciclos ya '
+          'establecidos.',
+    ),
+    FaqEntry(
+      question: '¿En qué se diferencia del método del calendario?',
+      answer: 'El método del calendario predice a partir de promedios '
+          'pasados (índice de Pearl ~15–25). El método sintotérmico '
+          'observa señales biológicas reales del ciclo actual (índice de '
+          'Pearl 0,4).\n\n'
+          'Esta app usa los cálculos de calendario solo como herramienta '
+          'secundaria: el moco siempre tiene prioridad.',
+    ),
+  ]),
+  FaqSection(label: 'Usar la app', items: [
+    FaqEntry(
+      question: '¿Qué significan los modos «evitar» y «buscar»?',
+      answer: 'Cambia cómo aparecen las etiquetas:\n\n'
+          '• Evitar: etiquetas conservadoras. Los días preovulatorios '
+          'dicen «potencialmente fértil», ya que la ovulación aún no está '
+          'confirmada.\n\n'
+          '• Buscar: etiquetas estándar del método. Se resalta la ventana '
+          'fértil para planificar.\n\n'
+          'La evaluación subyacente es idéntica.',
+    ),
+    FaqEntry(
+      question: '¿Debo confiar ciegamente en la app?',
+      answer: 'No. Es una herramienta de registro, no un dispositivo '
+          'médico. Deberías aprender las reglas y verificar que la '
+          'evaluación tenga sentido. Usa los ajustes manuales (línea '
+          'base, día cúspide) si hace falta.\n\n'
+          'Toca el icono ℹ junto a cualquier etiqueta para ver qué regla '
+          'se aplicó y por qué.',
+    ),
+  ]),
+];
